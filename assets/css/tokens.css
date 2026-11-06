@@ -86,7 +86,7 @@
   --shader-c3: #005eff;   /* bleu électrique */
   --shader-c4: #1fa8ff;
   --shader-c5: #5fe3ff;   /* haut : cyan lumineux */
-  --shader-speed: 1.4;     /* vitesse de l'animation */
+  --shader-speed: 1;       /* vitesse de l'animation */
   --shader-texture: 1;    /* intensité de la trame (0 = aucune) */
 
   --gradient-card-shade: linear-gradient(180deg, rgba(7, 22, 54, 0) 30%, rgba(7, 22, 54, .86) 100%);

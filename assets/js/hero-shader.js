@@ -91,11 +91,11 @@
       vec3 col = palette(v);
       col += band * 0.05 * vec3(0.6, 0.85, 1.0);
 
-      // 5. Texture : trame diagonale fine + grain animé
+      // 5. Texture statique (trame diagonale + grain) posée sur le dégradé qui bouge
       vec2 px = gl_FragCoord.xy / uDpr;
       float lines = sin((px.x - px.y) * 2.4) * 0.5 + 0.5;
       col *= 1.0 - 0.1 * uTex * lines * smoothstep(0.08, 0.8, v);
-      col += (hash(px + fract(t * 7.0)) - 0.5) * 0.05 * uTex;
+      col += (hash(floor(px)) - 0.5) * 0.05 * uTex;   // grain fixe (ne bouge pas)
 
       // 6. Assombrissement du bas pour la lisibilité
       col *= mix(uVignette, 1.0, smoothstep(0.0, 0.55, uv.y));
