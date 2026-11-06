@@ -1,0 +1,161 @@
+/* ==========================================================================
+   AlbA Convoyages — Design tokens
+   Direction artistique inspirée de Sterling : bleu nuit profond, bleu
+   électrique, fonds bleu glacier, typographie serrée Mona Sans / Golos Text.
+   Toutes les valeurs de design sont centralisées ici :
+   modifier un token = modifier tout le site.
+   ========================================================================== */
+
+:root {
+  /* ---------- 1. Palette primitive ---------------------------------------- */
+  /* Bleu nuit (sections sombres, titres) */
+  --navy-950: #071636;
+  --navy-900: #0e285d;   /* couleur signature des sections sombres */
+  --navy-800: #13336f;
+  --navy-700: #0d409b;   /* bleu roi */
+
+  /* Bleu électrique (actions) */
+  --electric-600: #004fdb;
+  --electric-500: #005eff;  /* CTA */
+  --electric-400: #3d82ff;
+
+  /* Bleu ciel (accents, dégradés) */
+  --sky-500: #0099ff;
+  --sky-400: #2bb3ff;
+  --sky-300: #7fd0ff;
+
+  /* Bleu AlbA (logo) — conservé pour la marque */
+  --alba-blue:  #0077c0;
+  --alba-slate: #4c5a69;
+
+  /* Glacier (fonds clairs) */
+  --ice-50:  #f5faff;
+  --ice-100: #edf7ff;
+  --ice-200: #dcecfb;
+  --ice-300: #c4dcf3;
+
+  /* Neutres froids */
+  --ink-900: #0b1530;
+  --ink-600: #4a5876;
+  --ink-500: #67748f;
+  --ink-400: #8d98b0;
+  --ink-300: #b7c0d2;
+  --paper:   #fafafa;
+  --white:   #ffffff;
+
+  --google-star: #fbbc04;
+  --success: #12a46c;
+  --danger:  #e5484d;
+
+  /* ---------- 2. Couleurs sémantiques ------------------------------------ */
+  --color-bg:            var(--white);
+  --color-bg-soft:       var(--ice-100);
+  --color-bg-muted:      var(--paper);
+  --color-bg-inverse:    var(--navy-900);
+  --color-bg-inverse-2:  var(--navy-950);
+
+  --color-text:          var(--navy-900);
+  --color-text-muted:    var(--ink-600);
+  --color-text-subtle:   var(--ink-400);
+  --color-text-ghost:    #a9b7cf;  /* mots « fantômes » des titres */
+  --color-text-inverse:  var(--white);
+  --color-text-inverse-muted: rgba(255, 255, 255, 0.66);
+  --color-text-inverse-ghost: rgba(255, 255, 255, 0.28);
+
+  --color-primary:       var(--electric-500);
+  --color-primary-hover: var(--electric-600);
+  --color-primary-soft:  var(--ice-200);
+  --color-on-primary:    var(--white);
+
+  --color-border:        rgba(14, 40, 93, 0.09);
+  --color-border-strong: rgba(14, 40, 93, 0.16);
+  --color-border-inverse: rgba(255, 255, 255, 0.10);
+
+  --color-card:          var(--white);
+  --color-card-inverse:  rgba(255, 255, 255, 0.045);
+  --color-card-inverse-hover: rgba(255, 255, 255, 0.08);
+
+  --gradient-hero:
+    radial-gradient(90% 70% at 95% -5%, var(--sky-400) 0%, rgba(43, 179, 255, 0) 55%),
+    radial-gradient(60% 50% at 10% 10%, rgba(0, 94, 255, .55) 0%, rgba(0, 94, 255, 0) 70%),
+    linear-gradient(180deg, #0a5be8 0%, var(--navy-700) 30%, #062b66 62%, #020b1c 100%);
+  --gradient-card-shade: linear-gradient(180deg, rgba(7, 22, 54, 0) 30%, rgba(7, 22, 54, .86) 100%);
+  --gradient-ghost-text: linear-gradient(90deg, var(--navy-900), var(--navy-900));
+
+  /* ---------- 3. Typographie --------------------------------------------- */
+  --font-display: "Mona Sans", "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body:    "Golos Text", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --fs-2xs:  0.6875rem;                                 /* 11 */
+  --fs-xs:   0.75rem;                                   /* 12 */
+  --fs-sm:   0.875rem;                                  /* 14 */
+  --fs-base: 1rem;                                      /* 16 */
+  --fs-md:   clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);/* 17 → 19 */
+  --fs-lg:   clamp(1.25rem, 1.1rem + 0.5vw, 1.4rem);    /* 20 → 22 */
+  --fs-xl:   clamp(1.5rem, 1.2rem + 1vw, 2.125rem);     /* 24 → 34 */
+  --fs-2xl:  clamp(2rem, 1.45rem + 2vw, 2.875rem);      /* 32 → 46 */
+  --fs-3xl:  clamp(2.25rem, 1.5rem + 3vw, 4.375rem);    /* 36 → 70 */
+  --fs-4xl:  clamp(2.75rem, 1.4rem + 5.6vw, 6.75rem);   /* 44 → 108 */
+
+  --fw-light:   300;
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold: 600;
+
+  --lh-tight: 1.02;
+  --lh-snug:  1.14;
+  --lh-body:  1.6;
+
+  --ls-display: -0.05em;
+  --ls-tight:   -0.035em;
+  --ls-snug:    -0.015em;
+  --ls-wide:    0.1em;
+
+  /* ---------- 4. Espacements (base 4px) ---------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  --section-y: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+  --gutter:    clamp(1.25rem, 0.6rem + 2.6vw, 3rem);
+  --container: 1280px;
+  --container-narrow: 880px;
+  --header-h: 76px;
+
+  /* ---------- 5. Rayons -------------------------------------------------- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;   /* rayon des cartes (Sterling) */
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* ---------- 6. Ombres -------------------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(14, 40, 93, 0.05);
+  --shadow-sm: 0 2px 10px rgba(14, 40, 93, 0.05);
+  --shadow-md: 0 18px 40px -18px rgba(14, 40, 93, 0.22);
+  --shadow-lg: 0 40px 80px -30px rgba(14, 40, 93, 0.38);
+  --shadow-glow: 0 12px 32px -10px rgba(0, 94, 255, 0.6);
+
+  /* ---------- 7. Mouvement ----------------------------------------------- */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-base: 340ms;
+  --dur-slow: 700ms;
+  --dur-reveal: 1000ms;
+
+  /* ---------- 8. Couches ------------------------------------------------- */
+  --z-sticky: 50;
+  --z-header: 100;
+  --z-overlay: 200;
+}
