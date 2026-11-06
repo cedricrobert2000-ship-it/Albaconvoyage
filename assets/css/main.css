@@ -929,3 +929,54 @@ a.contact-line:hover { background: rgba(255,255,255,.07); }
   .hero:not(.page-hero) .hero__text { font-size: var(--fs-base); }
   .hero:not(.page-hero) .video-card { max-height: 26vh; }
 }
+
+/* ==========================================================================
+   18. Écran de chargement (première page de la visite uniquement)
+   ========================================================================== */
+.loader { display: none; }
+.with-loader .loader { display: block; position: fixed; inset: 0; z-index: 1000; pointer-events: none; }
+.is-loading .loader { pointer-events: auto; }
+.is-loading body { overflow: hidden; }
+.is-loaded .loader { display: none; }
+
+.loader__panel { position: absolute; inset: 0; will-change: transform; }
+.loader__panel--accent { background: var(--electric-500); }
+.loader__panel--main {
+  display: grid; place-items: center;
+  background:
+    repeating-linear-gradient(-45deg, rgba(255,255,255,.035) 0 1px, transparent 1px 3px),
+    radial-gradient(70% 55% at 85% 0%, rgba(43,179,255,.55), transparent 70%),
+    radial-gradient(60% 50% at 10% 100%, rgba(0,94,255,.35), transparent 70%),
+    linear-gradient(180deg, var(--navy-700), var(--navy-900) 55%, var(--navy-950));
+}
+.loader__inner { display: grid; justify-items: center; gap: 22px; width: min(260px, 60vw); }
+
+/* Logo : révélation de gauche à droite + reflet lumineux qui le traverse */
+.loader__logo { position: relative; width: 100%; aspect-ratio: 400 / 161; }
+.loader__logo img { width: 100%; height: 100%; object-fit: contain; clip-path: inset(0 100% 0 0); filter: blur(6px); opacity: 0;
+  animation: loader-logo 1s var(--ease-out) .1s forwards; }
+.loader__shine {
+  position: absolute; inset: 0;
+  -webkit-mask: url("../img/logo-alba-blanc-400.png") center / contain no-repeat;
+          mask: url("../img/logo-alba-blanc-400.png") center / contain no-repeat;
+  background: linear-gradient(105deg, transparent 35%, rgba(127,208,255,.95) 50%, transparent 65%) 0 0 / 250% 100% no-repeat;
+  background-position: 120% 0;
+  animation: loader-shine 1.6s var(--ease-in-out) .7s infinite;
+}
+.loader__bar { position: relative; width: 100%; height: 2px; border-radius: 2px; background: rgba(255,255,255,.14); overflow: hidden; }
+.loader__bar span { position: absolute; inset: 0; background: linear-gradient(90deg, var(--sky-300), var(--white)); transform-origin: left; transform: scaleX(0); transition: transform .3s var(--ease-out); }
+.loader__tag { overflow: hidden; font-size: var(--fs-xs); letter-spacing: .02em; color: rgba(255,255,255,.7); white-space: nowrap; }
+.loader__tag span { display: block; transform: translateY(110%); animation: loader-up .9s var(--ease-out) .45s forwards; }
+
+@keyframes loader-logo { to { clip-path: inset(0 0 0 0); filter: blur(0); opacity: 1; } }
+@keyframes loader-shine { to { background-position: -120% 0; } }
+@keyframes loader-up { to { transform: none; } }
+
+/* Sortie : le contenu s'efface puis double rideau vers le haut */
+.is-leaving .loader__inner { transition: opacity .35s var(--ease-out), transform .5s var(--ease-out); opacity: 0; transform: translateY(-14px); }
+.is-leaving .loader__panel--main { transition: transform 1s cubic-bezier(.76, 0, .24, 1) .15s; transform: translateY(-100%); }
+.is-leaving .loader__panel--accent { transition: transform 1s cubic-bezier(.76, 0, .24, 1) .27s; transform: translateY(-100%); }
+
+/* Le hero s'anime juste après la sortie du loader */
+.with-loader .hero [data-split] .line-inner { --base-delay: 700ms; }
+.with-loader .hero [data-reveal] { transition-delay: calc(var(--d, 0) * 90ms + 700ms); }

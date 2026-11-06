@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-icons="assets/img/icons.svg?v=ed6cd180#">
+<html lang="fr" data-icons="assets/img/icons.svg?v=664eb532#">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -21,9 +21,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Mona+Sans:wght@300..600&display=swap">
-  <link rel="stylesheet" href="assets/css/tokens.css?v=ed6cd180">
-  <link rel="stylesheet" href="assets/css/main.css?v=ed6cd180">
-  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="assets/css/tokens.css?v=664eb532">
+  <link rel="stylesheet" href="assets/css/main.css?v=664eb532">
+  <script>
+    /* Écran de chargement : uniquement à la première page de la visite */
+    (function (d) {
+      var h = d.documentElement, show = false;
+      h.classList.add('js');
+      try {
+        show = !sessionStorage.getItem('alba-loader') && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+        sessionStorage.setItem('alba-loader', '1');
+      } catch (e) {}
+      if (show) h.classList.add('with-loader', 'is-loading');
+    })(document);
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,6 +57,40 @@
   <meta name="robots" content="noindex">
 </head>
 <body>
+  <div class="loader" aria-hidden="true">
+    <div class="loader__panel loader__panel--accent"></div>
+    <div class="loader__panel loader__panel--main">
+      <div class="loader__inner">
+        <div class="loader__logo">
+          <img src="assets/img/logo-alba-blanc-400.png" alt="" width="400" height="161">
+          <span class="loader__shine"></span>
+        </div>
+        <div class="loader__bar"><span></span></div>
+        <p class="loader__tag"><span>La logistique automobile, 100 % humaine</span></p>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function (d) {
+      var h = d.documentElement;
+      if (!h.classList.contains('is-loading')) return;
+      var bar = d.querySelector('.loader__bar span'), p = 0, start = Date.now(), done = false;
+      var tick = setInterval(function () { p += (88 - p) * 0.08; bar.style.transform = 'scaleX(' + (p / 100) + ')'; }, 60);
+      function finish() {
+        if (done) return; done = true;
+        var wait = Math.max(0, 900 - (Date.now() - start));
+        setTimeout(function () {
+          clearInterval(tick); bar.style.transform = 'scaleX(1)';
+          setTimeout(function () {
+            h.classList.add('is-leaving'); h.classList.remove('is-loading');
+            setTimeout(function () { h.classList.add('is-loaded'); }, 1300);
+          }, 280);
+        }, wait);
+      }
+      window.addEventListener('load', finish);
+      setTimeout(finish, 3500);
+    })(document);
+  </script>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <header class="site-header">
@@ -64,8 +109,8 @@
         </ul>
       </nav>
       <div class="header-actions">
-        <a class="header-phone" href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#phone"/></svg>07 89 62 17 61</a>
-        <a class="btn btn--sm header-cta" href="devis.html">Demander un devis<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></span></a>
+        <a class="header-phone" href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#phone"/></svg>07 89 62 17 61</a>
+        <a class="btn btn--sm header-cta" href="devis.html">Demander un devis<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></span></a>
         <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu"><span></span></button>
       </div>
     </div>
@@ -74,17 +119,17 @@
   <div class="mobile-menu" id="mobile-menu" hidden>
     <nav aria-label="Navigation mobile">
       <ul class="mobile-menu__list">
-        <li><a href="index.html">Accueil<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></a></li>
-        <li><a href="services.html">Nos services<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></a></li>
-        <li><a href="devenir-convoyeur.html">Devenir convoyeur<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></a></li>
-        <li><a href="blog.html">Infos convoyage<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></a></li>
-        <li><a href="devis.html">Contact &amp; devis<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></a></li>
+        <li><a href="index.html">Accueil<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></a></li>
+        <li><a href="services.html">Nos services<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></a></li>
+        <li><a href="devenir-convoyeur.html">Devenir convoyeur<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></a></li>
+        <li><a href="blog.html">Infos convoyage<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></a></li>
+        <li><a href="devis.html">Contact &amp; devis<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></a></li>
       </ul>
     </nav>
     <div class="mobile-menu__foot">
       <p class="text-sm muted">Lundi au samedi · 8h30 – 19h<br>Devis en 30 minutes en moyenne</p>
-      <a class="btn" href="devis.html">Demander un devis gratuit<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></span></a>
-      <a class="btn btn--outline" href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#phone"/></svg>07 89 62 17 61</a>
+      <a class="btn" href="devis.html">Demander un devis gratuit<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></span></a>
+      <a class="btn btn--outline" href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#phone"/></svg>07 89 62 17 61</a>
     </div>
   </div>
 
@@ -221,15 +266,15 @@
           <h2 id="ds-buttons" class="display display-md mt-4">Boutons</h2>
           <p class="lead mt-4">Bouton principal avec tuile flèche (animée au survol). Un seul bouton principal par zone ; hauteur minimale 48 px pour le tactile.</p>
           <div class="ds-row mt-8">
-            <a class="btn" href="#ds-buttons">.btn<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></span></a>
-            <a class="btn btn--navy" href="#ds-buttons">.btn--navy<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></span></a>
-            <a class="btn btn--light" href="#ds-buttons" style="box-shadow:var(--shadow-sm)">.btn--light<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></span></a>
-            <a class="btn btn--sm" href="#ds-buttons">.btn--sm<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></span></a>
-            <a class="link-arrow" href="#ds-buttons">.link-arrow<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></a>
+            <a class="btn" href="#ds-buttons">.btn<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></span></a>
+            <a class="btn btn--navy" href="#ds-buttons">.btn--navy<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></span></a>
+            <a class="btn btn--light" href="#ds-buttons" style="box-shadow:var(--shadow-sm)">.btn--light<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></span></a>
+            <a class="btn btn--sm" href="#ds-buttons">.btn--sm<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></span></a>
+            <a class="link-arrow" href="#ds-buttons">.link-arrow<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></a>
           </div>
           <div class="ds-dark ds-row mt-6">
-            <a class="btn" href="#ds-buttons">Sur fond sombre<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></span></a>
-            <a class="btn btn--light" href="#ds-buttons">.btn--light<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></span></a>
+            <a class="btn" href="#ds-buttons">Sur fond sombre<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></span></a>
+            <a class="btn btn--light" href="#ds-buttons">.btn--light<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></span></a>
             <a class="btn btn--outline btn--simple" href="#ds-buttons">.btn--outline</a>
             <span class="eyebrow eyebrow--pill" style="color:rgba(255,255,255,.8)">.eyebrow--pill</span>
           </div>
@@ -240,13 +285,13 @@
           <p class="eyebrow">06 · Composants</p>
           <h2 id="ds-cards" class="display display-md mt-4">Cartes</h2>
           <div class="grid grid-3 mt-8" style="background:var(--color-bg-soft);padding:var(--gap-grid);border-radius:var(--radius-xl)">
-            <article class="card feature-card"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#user-check"/></svg></span><div><h3 class="card__title">.feature-card</h3><p class="card__text mt-2">Carte haute, icône en haut, texte en bas.</p></div></article>
-            <article class="card feature-card feature-card--image"><img src="assets/img/remise-cles.webp" alt="" width="1400" height="934" loading="lazy"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#shield"/></svg></span><div><h3 class="card__title">--image</h3><p class="card__text mt-2">Variante avec photo et dégradé.</p></div></article>
-            <article class="card"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#gps"/></svg></span><h3 class="card__title mt-4">.card</h3><p class="card__text">Carte simple avec icône.</p></article>
+            <article class="card feature-card"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#user-check"/></svg></span><div><h3 class="card__title">.feature-card</h3><p class="card__text mt-2">Carte haute, icône en haut, texte en bas.</p></div></article>
+            <article class="card feature-card feature-card--image"><img src="assets/img/remise-cles.webp" alt="" width="1400" height="934" loading="lazy"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#shield"/></svg></span><div><h3 class="card__title">--image</h3><p class="card__text mt-2">Variante avec photo et dégradé.</p></div></article>
+            <article class="card"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#gps"/></svg></span><h3 class="card__title mt-4">.card</h3><p class="card__text">Carte simple avec icône.</p></article>
           </div>
           <div class="grid grid-3 mt-6 ds-dark">
-            <div class="dark-card"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#zap"/></svg></span><h3 class="title-md">.dark-card</h3><p class="card__text text-sm">Sur fond sombre.</p></div>
-            <div class="dark-card dark-card--highlight"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#card"/></svg></span><h3 class="title-md">--highlight</h3><p class="card__text text-sm">Mise en avant.</p></div>
+            <div class="dark-card"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#zap"/></svg></span><h3 class="title-md">.dark-card</h3><p class="card__text text-sm">Sur fond sombre.</p></div>
+            <div class="dark-card dark-card--highlight"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#card"/></svg></span><h3 class="title-md">--highlight</h3><p class="card__text text-sm">Mise en avant.</p></div>
             <figure class="review" style="width:auto"><blockquote class="review__text">« .review : carte d'avis client. »</blockquote><figcaption class="review__author"><span class="review__avatar">AB</span><span>Nom<span class="review__meta"><br>Avis Google</span></span></figcaption></figure>
           </div>
         </section>
@@ -260,8 +305,8 @@
             <div class="field is-invalid"><label for="ds-2">Champ en erreur</label><input class="input" id="ds-2" value="Valeur invalide"><p class="field__error">Message d'erreur explicite.</p></div>
             <div class="field"><label for="ds-3">Liste</label><select class="select" id="ds-3"><option>Essence</option><option>Électrique</option></select></div>
             <div class="field"><span class="text-sm" style="font-weight:500">Choix</span><div class="choice-group"><label class="choice"><input type="radio" name="ds-r" checked><span>Option A</span></label><label class="choice"><input type="radio" name="ds-r"><span>Option B</span></label></div></div>
-            <label class="file-drop"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#upload"/></svg><span><strong>Dépôt de fichier</strong>.jpg, .png, .pdf · 2 Mo max.</span><input type="file"></label>
-            <div class="alert"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#alert"/></svg><span>.alert : information importante.</span></div>
+            <label class="file-drop"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#upload"/></svg><span><strong>Dépôt de fichier</strong>.jpg, .png, .pdf · 2 Mo max.</span><input type="file"></label>
+            <div class="alert"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#alert"/></svg><span>.alert : information importante.</span></div>
           </div>
         </section>
 
@@ -271,12 +316,12 @@
           <h2 id="ds-icons" class="display display-md mt-4">Icônes</h2>
           <p class="lead mt-4">Sprite SVG <code>assets/img/icons.svg</code>, trait 1,6 px. Dans les pages : <code>&#123;&#123;icon:nom&#125;&#125;</code>.</p>
           <div class="ds-icons mt-8">
-            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#phone"/></svg>phone</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#mail"/></svg>mail</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#chat"/></svg>chat</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#clock"/></svg>clock</div>
-            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#gps"/></svg>gps</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#route"/></svg>route</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#shield"/></svg>shield</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#camera"/></svg>camera</div>
-            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#users"/></svg>users</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#user-check"/></svg>user-check</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#car"/></svg>car</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#truck"/></svg>truck</div>
-            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#key"/></svg>key</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#layers"/></svg>layers</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#euro"/></svg>euro</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#card"/></svg>card</div>
-            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#zap"/></svg>zap</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#headset"/></svg>headset</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#clipboard"/></svg>clipboard</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#heart"/></svg>heart</div>
-            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#compass"/></svg>compass</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#globe"/></svg>globe</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#upload"/></svg>upload</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#sparkle"/></svg>sparkle</div>
+            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#phone"/></svg>phone</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#mail"/></svg>mail</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#chat"/></svg>chat</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#clock"/></svg>clock</div>
+            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#gps"/></svg>gps</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#route"/></svg>route</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#shield"/></svg>shield</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#camera"/></svg>camera</div>
+            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#users"/></svg>users</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#user-check"/></svg>user-check</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#car"/></svg>car</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#truck"/></svg>truck</div>
+            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#key"/></svg>key</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#layers"/></svg>layers</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#euro"/></svg>euro</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#card"/></svg>card</div>
+            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#zap"/></svg>zap</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#headset"/></svg>headset</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#clipboard"/></svg>clipboard</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#heart"/></svg>heart</div>
+            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#compass"/></svg>compass</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#globe"/></svg>globe</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#upload"/></svg>upload</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#sparkle"/></svg>sparkle</div>
           </div>
         </section>
 
@@ -312,9 +357,9 @@
           <h2 id="footer-cta-title" class="display display-lg">Prêt à nous confier vos convoyages ?</h2>
           <p>Décrivez-nous votre besoin. Carla ou Fabrice vous répond dans l'heure avec un devis adapté à votre activité.</p>
           <div class="footer-cta__actions">
-            <a class="btn btn--light" href="devis.html">Demander un devis gratuit<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></span></a>
+            <a class="btn btn--light" href="devis.html">Demander un devis gratuit<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></span></a>
             <div class="footer-cta__rating">
-              <strong>5/5 <span class="stars" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg?v=ed6cd180#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=ed6cd180#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=ed6cd180#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=ed6cd180#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=ed6cd180#star"/></svg></span></strong>
+              <strong>5/5 <span class="stars" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg?v=664eb532#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=664eb532#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=664eb532#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=664eb532#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=664eb532#star"/></svg></span></strong>
               <span>Avis Google · <a href="tel:+33789621761" style="text-decoration:underline">07 89 62 17 61</a></span>
             </div>
           </div>
@@ -325,8 +370,8 @@
           <img src="assets/img/logo-alba-blanc-400.png" alt="AlbA Convoyages" width="400" height="161" loading="lazy">
           <p>La logistique automobile, 100 % humaine. Convoyages de véhicules légers partout en France et en Europe, à partir de 98 € HT.</p>
           <a class="google-badge" href="https://www.trustindex.io/reviews/www.albaconvoyages.fr" target="_blank" rel="noopener">
-            <span class="google-badge__g"><svg aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#google"/></svg></span>
-            <span><span class="stars" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg?v=ed6cd180#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=ed6cd180#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=ed6cd180#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=ed6cd180#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=ed6cd180#star"/></svg></span><small>Excellent · 5/5 sur Google</small></span>
+            <span class="google-badge__g"><svg aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#google"/></svg></span>
+            <span><span class="stars" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg?v=664eb532#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=664eb532#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=664eb532#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=664eb532#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=664eb532#star"/></svg></span><small>Excellent · 5/5 sur Google</small></span>
           </a>
         </div>
         <div>
@@ -352,14 +397,14 @@
         <div>
           <h2 class="footer-title">Nous contacter</h2>
           <div class="footer-contact">
-            <a href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#phone"/></svg>07 89 62 17 61</a>
-            <a href="mailto:administratif@albaconvoyages.fr"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#mail"/></svg>administratif@albaconvoyages.fr</a>
+            <a href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#phone"/></svg>07 89 62 17 61</a>
+            <a href="mailto:administratif@albaconvoyages.fr"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#mail"/></svg>administratif@albaconvoyages.fr</a>
             <small>Du lundi au samedi, 8h30 – 19h<br>Une réponse en moins de 30 minutes</small>
           </div>
           <div class="socials">
-            <a href="https://www.linkedin.com/company/alba-convoyages" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#linkedin"/></svg></a>
-            <a href="https://whatsapp.com/channel/0029Vb6IM6E4IBhB8UZ8j41o" target="_blank" rel="noopener" aria-label="Chaîne WhatsApp"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#chat"/></svg></a>
-            <a href="https://www.tiktok.com/@albaconvoyages.fr" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#tiktok"/></svg></a>
+            <a href="https://www.linkedin.com/company/alba-convoyages" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#linkedin"/></svg></a>
+            <a href="https://whatsapp.com/channel/0029Vb6IM6E4IBhB8UZ8j41o" target="_blank" rel="noopener" aria-label="Chaîne WhatsApp"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#chat"/></svg></a>
+            <a href="https://www.tiktok.com/@albaconvoyages.fr" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#tiktok"/></svg></a>
           </div>
         </div>
       </div>
@@ -372,11 +417,11 @@
   </footer>
 
   <div class="mobile-bar" aria-label="Actions rapides">
-    <a class="mobile-bar__call" href="tel:+33789621761" aria-label="Appeler AlbA Convoyages"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#phone"/></svg>Appeler</a>
-    <a class="mobile-bar__quote" href="devis.html">Devis gratuit en 30 min<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=ed6cd180#arrow-ur"/></svg></a>
+    <a class="mobile-bar__call" href="tel:+33789621761" aria-label="Appeler AlbA Convoyages"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#phone"/></svg>Appeler</a>
+    <a class="mobile-bar__quote" href="devis.html">Devis gratuit en 30 min<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=664eb532#arrow-ur"/></svg></a>
   </div>
 
-  <script src="assets/js/hero-shader.js?v=ed6cd180" defer></script>
-  <script src="assets/js/main.js?v=ed6cd180" defer></script>
+  <script src="assets/js/hero-shader.js?v=664eb532" defer></script>
+  <script src="assets/js/main.js?v=664eb532" defer></script>
 </body>
 </html>

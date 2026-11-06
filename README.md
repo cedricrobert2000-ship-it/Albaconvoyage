@@ -62,6 +62,10 @@ Toute la charte se trouve dans `assets/css/tokens.css` : changer une valeur la m
 - **Fond animé des heros** : `--shader-c0` à `--shader-c5` (couleurs), `--shader-speed` (vitesse) et `--shader-texture` (intensité de la trame). Le rendu est fait en WebGL dans `assets/js/hero-shader.js` ; il se met en pause hors écran et se fige si l'utilisateur a choisi de réduire les animations.
 - **Échelle typographique fluide** (`--fs-*`), **espacements** (`--space-*`), **rayons** (`--radius-*`), **ombres** et **durées d'animation**.
 
+## Écran de chargement
+
+Défini dans `_src/layout.html` (balisage et script inline) et `assets/css/main.css` (section 18). Il s'affiche **une seule fois par visite** (mémorisé dans `sessionStorage`), dure au minimum 0,9 s et au maximum 3,5 s, suit le chargement réel de la page, puis se retire avec un double rideau avant l'animation du hero. Il est désactivé si l'utilisateur a demandé de réduire les animations. Pour le revoir : ouvrir le site dans un nouvel onglet ou en navigation privée.
+
 ## Formulaires (devis et candidature)
 
 Dans `assets/js/main.js`, renseigner `FORM_ENDPOINT` avec l'URL d'un service d'envoi (Formspree, Make, Zapier ou une API) pour recevoir les demandes directement, pièces jointes comprises.

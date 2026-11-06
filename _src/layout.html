@@ -23,7 +23,18 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Mona+Sans:wght@300..600&display=swap">
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/main.css">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>
+    /* Écran de chargement : uniquement à la première page de la visite */
+    (function (d) {
+      var h = d.documentElement, show = false;
+      h.classList.add('js');
+      try {
+        show = !sessionStorage.getItem('alba-loader') && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+        sessionStorage.setItem('alba-loader', '1');
+      } catch (e) {}
+      if (show) h.classList.add('with-loader', 'is-loading');
+    })(document);
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,6 +57,40 @@
 {{head_extra}}
 </head>
 <body>
+  <div class="loader" aria-hidden="true">
+    <div class="loader__panel loader__panel--accent"></div>
+    <div class="loader__panel loader__panel--main">
+      <div class="loader__inner">
+        <div class="loader__logo">
+          <img src="assets/img/logo-alba-blanc-400.png" alt="" width="400" height="161">
+          <span class="loader__shine"></span>
+        </div>
+        <div class="loader__bar"><span></span></div>
+        <p class="loader__tag"><span>La logistique automobile, 100 % humaine</span></p>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function (d) {
+      var h = d.documentElement;
+      if (!h.classList.contains('is-loading')) return;
+      var bar = d.querySelector('.loader__bar span'), p = 0, start = Date.now(), done = false;
+      var tick = setInterval(function () { p += (88 - p) * 0.08; bar.style.transform = 'scaleX(' + (p / 100) + ')'; }, 60);
+      function finish() {
+        if (done) return; done = true;
+        var wait = Math.max(0, 900 - (Date.now() - start));
+        setTimeout(function () {
+          clearInterval(tick); bar.style.transform = 'scaleX(1)';
+          setTimeout(function () {
+            h.classList.add('is-leaving'); h.classList.remove('is-loading');
+            setTimeout(function () { h.classList.add('is-loaded'); }, 1300);
+          }, 280);
+        }, wait);
+      }
+      window.addEventListener('load', finish);
+      setTimeout(finish, 3500);
+    })(document);
+  </script>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <header class="site-header">
