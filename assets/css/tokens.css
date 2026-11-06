@@ -79,6 +79,16 @@
     radial-gradient(90% 70% at 95% -5%, var(--sky-400) 0%, rgba(43, 179, 255, 0) 55%),
     radial-gradient(60% 50% at 10% 10%, rgba(0, 94, 255, .55) 0%, rgba(0, 94, 255, 0) 70%),
     linear-gradient(180deg, #0a5be8 0%, var(--navy-700) 30%, #062b66 62%, #020b1c 100%);
+  /* Fond animé WebGL des heros (assets/js/hero-shader.js) */
+  --shader-c0: #020b1c;   /* bas : quasi noir */
+  --shader-c1: #062b66;
+  --shader-c2: #0d409b;   /* bleu roi */
+  --shader-c3: #005eff;   /* bleu électrique */
+  --shader-c4: #1fa8ff;
+  --shader-c5: #5fe3ff;   /* haut : cyan lumineux */
+  --shader-speed: 1;      /* vitesse de l'animation */
+  --shader-texture: 1;    /* intensité de la trame (0 = aucune) */
+
   --gradient-card-shade: linear-gradient(180deg, rgba(7, 22, 54, 0) 30%, rgba(7, 22, 54, .86) 100%);
   --gradient-ghost-text: linear-gradient(90deg, var(--navy-900), var(--navy-900));
 
@@ -125,8 +135,13 @@
   --space-20: 5rem;
   --space-24: 6rem;
 
-  --section-y: clamp(4.5rem, 3rem + 6vw, 8.5rem);
-  --gutter:    clamp(1.25rem, 0.6rem + 2.6vw, 3rem);
+  /* Rythme de mise en page (espaces entre composants) */
+  --section-y:  clamp(5.5rem, 3.5rem + 7vw, 10rem);   /* haut/bas de section */
+  --stack-head: clamp(3rem, 2rem + 3.5vw, 5.5rem);    /* titre de section → contenu */
+  --stack-lg:   clamp(3rem, 2rem + 3vw, 5rem);        /* entre deux blocs d'une section */
+  --gap-grid:   clamp(1rem, 0.6rem + 1.2vw, 1.75rem); /* entre cartes d'une grille */
+  --gap-stack:  clamp(1rem, 0.7rem + 0.8vw, 1.5rem);  /* entre éléments empilés */
+  --gutter:     clamp(1.25rem, 0.6rem + 2.6vw, 3rem);
   --container: 1280px;
   --container-narrow: 880px;
   --header-h: 76px;

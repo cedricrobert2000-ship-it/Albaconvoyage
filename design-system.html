@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="fr" data-icons="assets/img/icons.svg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Design system — AlbA Convoyages</title>
+  <meta name="description" content="Tokens et composants du site AlbA Convoyages : couleurs, typographie, espacements, rayons, ombres, boutons, cartes, formulaires, icônes et animations.">
+  <link rel="canonical" href="https://albaconvoyages.fr/design-system.html">
+  <meta name="theme-color" content="#0e285d">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="AlbA Convoyages">
+  <meta property="og:title" content="Design system — AlbA Convoyages">
+  <meta property="og:description" content="Tokens et composants du site AlbA Convoyages : couleurs, typographie, espacements, rayons, ombres, boutons, cartes, formulaires, icônes et animations.">
+  <meta property="og:url" content="https://albaconvoyages.fr/design-system.html">
+  <meta property="og:image" content="https://albaconvoyages.fr/assets/img/equipe-carla-fabrice.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="assets/img/favicon-270.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Mona+Sans:wght@300..600&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://albaconvoyages.fr/#entreprise",
+    "name": "AlbA Convoyages",
+    "description": "Convoyage de véhicules légers partout en France et en Europe, à partir de 98 € HT, assurance tous risques incluse.",
+    "url": "https://albaconvoyages.fr/",
+    "logo": "https://albaconvoyages.fr/assets/img/logo-alba.png",
+    "image": "https://albaconvoyages.fr/assets/img/equipe-carla-fabrice.webp",
+    "telephone": "+33789621761",
+    "email": "administratif@albaconvoyages.fr",
+    "priceRange": "À partir de 98 € HT",
+    "address": { "@type": "PostalAddress", "streetAddress": "9 Avenue Alexandre Maistrasse", "postalCode": "92500", "addressLocality": "Rueil-Malmaison", "addressCountry": "FR" },
+    "areaServed": ["France", "Europe"],
+    "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:30", "closes": "19:00" }],
+    "sameAs": ["https://www.linkedin.com/company/alba-convoyages", "https://www.tiktok.com/@albaconvoyages.fr"]
+  }
+  </script>
+  <meta name="robots" content="noindex">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="AlbA Convoyages — accueil">
+        <img class="brand__light" src="assets/img/logo-alba-blanc-400.png" alt="" width="400" height="161">
+        <img class="brand__dark" src="assets/img/logo-alba-400.png" alt="" width="400" height="161">
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Accueil</a></li>
+          <li><a class="nav__link" href="services.html">Nos services</a></li>
+          <li><a class="nav__link" href="devenir-convoyeur.html">Devenir convoyeur</a></li>
+          <li><a class="nav__link" href="blog.html">Infos convoyage</a></li>
+          <li><a class="nav__link" href="devis.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="header-phone" href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg>07 89 62 17 61</a>
+        <a class="btn btn--sm header-cta" href="devis.html">Demander un devis<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></span></a>
+        <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu"><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Navigation mobile">
+      <ul class="mobile-menu__list">
+        <li><a href="index.html">Accueil<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
+        <li><a href="services.html">Nos services<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
+        <li><a href="devenir-convoyeur.html">Devenir convoyeur<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
+        <li><a href="blog.html">Infos convoyage<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
+        <li><a href="devis.html">Contact &amp; devis<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu__foot">
+      <p class="text-sm muted">Lundi au samedi · 8h30 – 19h<br>Devis en 30 minutes en moyenne</p>
+      <a class="btn" href="devis.html">Demander un devis gratuit<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></span></a>
+      <a class="btn btn--outline" href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg>07 89 62 17 61</a>
+    </div>
+  </div>
+
+  <main id="contenu">
+<style>
+      .ds-section { padding-block: var(--stack-lg); border-top: 1px solid var(--color-border); }
+      .ds-section:first-child { border-top: 0; }
+      .ds-grid { display: grid; gap: var(--gap-grid); grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+      .ds-swatch { border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); background: var(--white); }
+      .ds-swatch__color { height: 88px; }
+      .ds-swatch__meta { padding: 10px 12px; font-size: var(--fs-xs); line-height: 1.45; }
+      .ds-swatch__meta code { display: block; color: var(--color-text-muted); }
+      .ds-row { display: flex; flex-wrap: wrap; gap: var(--gap-grid); align-items: center; }
+      .ds-type { display: grid; gap: var(--space-6); }
+      .ds-type__item { display: grid; gap: 4px; }
+      .ds-type__item code, .ds-label { font-size: var(--fs-xs); color: var(--color-text-muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .ds-space { display: grid; gap: 10px; }
+      .ds-space__bar { height: 14px; border-radius: 4px; background: var(--electric-500); }
+      .ds-space__row { display: grid; grid-template-columns: 140px 1fr; gap: 16px; align-items: center; }
+      .ds-box { width: 110px; height: 110px; background: var(--white); border: 1px solid var(--color-border); display: grid; place-items: end start; padding: 10px; }
+      .ds-icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
+      .ds-icons div { display: grid; justify-items: center; gap: 8px; padding: 16px 8px; border-radius: var(--radius-sm); background: var(--color-bg-soft); font-size: 11px; color: var(--color-text-muted); }
+      .ds-icons .icon { width: 24px; height: 24px; color: var(--navy-900); }
+      .ds-dark { padding: var(--space-8); border-radius: var(--radius-xl); background: var(--navy-900); color: var(--white); }
+      .ds-hero-demo { position: relative; height: 320px; border-radius: var(--radius-xl); overflow: hidden; isolation: isolate; }
+    </style>
+
+    <section class="hero page-hero" aria-labelledby="page-title">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
+      <div class="container">
+        <p class="hero__badge"><span class="eyebrow eyebrow--pill">Usage interne · non indexé</span></p>
+        <div class="page-hero__grid">
+          <h1 id="page-title" class="display display-lg hero__title" data-split>Design system <span class="ghost">AlbA Convoyages</span></h1>
+          <p class="lead">Les fondations (tokens) et les composants du site. Toutes les valeurs sont définies dans <code>assets/css/tokens.css</code> : modifier un token met à jour l'ensemble du site.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section" style="padding-top:var(--stack-lg)">
+      <div class="container">
+
+        <!-- COULEURS -->
+        <section class="ds-section" aria-labelledby="ds-colors">
+          <p class="eyebrow">01 · Fondations</p>
+          <h2 id="ds-colors" class="display display-md mt-4">Couleurs</h2>
+          <p class="lead mt-4">Palette primitive (valeurs brutes), puis couleurs sémantiques (rôle dans l'interface). Dans les composants, on utilise toujours les tokens sémantiques.</p>
+          <h3 class="title-md mt-8">Primitives</h3>
+          <div class="ds-grid mt-4">
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--navy-950)"></div><div class="ds-swatch__meta">Navy 950<code>--navy-950 · #071636</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--navy-900)"></div><div class="ds-swatch__meta">Navy 900<code>--navy-900 · #0e285d</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--navy-700)"></div><div class="ds-swatch__meta">Bleu roi<code>--navy-700 · #0d409b</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--electric-500)"></div><div class="ds-swatch__meta">Électrique 500<code>--electric-500 · #005eff</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--sky-500)"></div><div class="ds-swatch__meta">Ciel 500<code>--sky-500 · #0099ff</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--sky-300)"></div><div class="ds-swatch__meta">Ciel 300<code>--sky-300 · #7fd0ff</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--alba-blue)"></div><div class="ds-swatch__meta">Bleu logo<code>--alba-blue · #0077c0</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--alba-slate)"></div><div class="ds-swatch__meta">Ardoise logo<code>--alba-slate · #4c5a69</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--ice-100)"></div><div class="ds-swatch__meta">Glacier 100<code>--ice-100 · #edf7ff</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--ice-200)"></div><div class="ds-swatch__meta">Glacier 200<code>--ice-200 · #dcecfb</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--ink-600)"></div><div class="ds-swatch__meta">Encre 600<code>--ink-600 · #4a5876</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--google-star)"></div><div class="ds-swatch__meta">Étoile Google<code>--google-star · #fbbc04</code></div></div>
+          </div>
+          <h3 class="title-md mt-8">Sémantiques</h3>
+          <div class="ds-grid mt-4">
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--color-primary)"></div><div class="ds-swatch__meta">Action principale<code>--color-primary</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--color-text)"></div><div class="ds-swatch__meta">Texte<code>--color-text</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--color-text-muted)"></div><div class="ds-swatch__meta">Texte secondaire<code>--color-text-muted</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--color-text-ghost)"></div><div class="ds-swatch__meta">Mots « fantômes »<code>--color-text-ghost</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--color-bg-soft)"></div><div class="ds-swatch__meta">Fond clair<code>--color-bg-soft</code></div></div>
+            <div class="ds-swatch"><div class="ds-swatch__color" style="background:var(--color-bg-inverse)"></div><div class="ds-swatch__meta">Fond sombre<code>--color-bg-inverse</code></div></div>
+          </div>
+          <h3 class="title-md mt-8">Fond animé des heros</h3>
+          <p class="muted text-sm mt-2">Rampe <code>--shader-c0</code> → <code>--shader-c5</code>, vitesse <code>--shader-speed</code>, trame <code>--shader-texture</code>.</p>
+          <div class="ds-hero-demo mt-4"><div class="hero__bg" aria-hidden="true"></div></div>
+        </section>
+
+        <!-- TYPOGRAPHIE -->
+        <section class="ds-section" aria-labelledby="ds-type">
+          <p class="eyebrow">02 · Fondations</p>
+          <h2 id="ds-type" class="display display-md mt-4">Typographie</h2>
+          <p class="lead mt-4"><strong>Mona Sans</strong> pour les titres (graisse 400, interlettrage serré) et <strong>Golos Text</strong> pour le texte courant. Les tailles sont fluides : elles s'adaptent entre mobile et desktop.</p>
+          <div class="ds-type mt-8">
+            <div class="ds-type__item"><code>.display-xl · --fs-4xl · 44 → 108 px</code><span class="display display-xl">Convoyage</span></div>
+            <div class="ds-type__item"><code>.display-lg · --fs-3xl · 36 → 70 px</code><span class="display display-lg">Vos convoyages <span class="ghost">dès 98 € HT</span></span></div>
+            <div class="ds-type__item"><code>.display-md · --fs-2xl · 32 → 46 px</code><span class="display display-md">Une équipe, pas un algorithme</span></div>
+            <div class="ds-type__item"><code>.title-lg · --fs-xl · 24 → 34 px</code><span class="display title-lg">Suivi GPS en direct</span></div>
+            <div class="ds-type__item"><code>.title-md · --fs-lg · 20 → 22 px</code><span class="display title-md">Assurance tous risques</span></div>
+            <div class="ds-type__item"><code>.lead · --fs-md · 17 → 19 px</code><p class="lead">Confiez vos convoyages à une équipe réactive qui connaît personnellement ses convoyeurs.</p></div>
+            <div class="ds-type__item"><code>body · --fs-base · 16 px</code><p>Texte courant, interligne 1,6, pour une lecture confortable.</p></div>
+            <div class="ds-type__item"><code>.eyebrow · --fs-2xs · 11 px</code><span class="eyebrow">Sur-titre de section</span></div>
+          </div>
+        </section>
+
+        <!-- ESPACEMENTS -->
+        <section class="ds-section" aria-labelledby="ds-space">
+          <p class="eyebrow">03 · Fondations</p>
+          <h2 id="ds-space" class="display display-md mt-4">Espacements &amp; rythme</h2>
+          <p class="lead mt-4">Une échelle de base 4 px pour les petits écarts, et des tokens de rythme fluides pour l'espace entre les composants.</p>
+          <div class="ds-space mt-8">
+            <div class="ds-space__row"><span class="ds-label">--space-2 · 8</span><span class="ds-space__bar" style="width:var(--space-2)"></span></div>
+            <div class="ds-space__row"><span class="ds-label">--space-4 · 16</span><span class="ds-space__bar" style="width:var(--space-4)"></span></div>
+            <div class="ds-space__row"><span class="ds-label">--space-6 · 24</span><span class="ds-space__bar" style="width:var(--space-6)"></span></div>
+            <div class="ds-space__row"><span class="ds-label">--space-8 · 32</span><span class="ds-space__bar" style="width:var(--space-8)"></span></div>
+            <div class="ds-space__row"><span class="ds-label">--space-12 · 48</span><span class="ds-space__bar" style="width:var(--space-12)"></span></div>
+            <div class="ds-space__row"><span class="ds-label">--gap-grid</span><span class="ds-space__bar" style="width:var(--gap-grid);background:var(--sky-500)"></span></div>
+            <div class="ds-space__row"><span class="ds-label">--stack-lg</span><span class="ds-space__bar" style="width:var(--stack-lg);background:var(--sky-500)"></span></div>
+            <div class="ds-space__row"><span class="ds-label">--stack-head</span><span class="ds-space__bar" style="width:var(--stack-head);background:var(--sky-500)"></span></div>
+            <div class="ds-space__row"><span class="ds-label">--section-y</span><span class="ds-space__bar" style="width:var(--section-y);background:var(--navy-900)"></span></div>
+          </div>
+        </section>
+
+        <!-- RAYONS & OMBRES -->
+        <section class="ds-section" aria-labelledby="ds-radius">
+          <p class="eyebrow">04 · Fondations</p>
+          <h2 id="ds-radius" class="display display-md mt-4">Rayons &amp; ombres</h2>
+          <div class="ds-row mt-8">
+            <div class="ds-box" style="border-radius:var(--radius-sm)"><span class="ds-label">--radius-sm</span></div>
+            <div class="ds-box" style="border-radius:var(--radius-md)"><span class="ds-label">--radius-md</span></div>
+            <div class="ds-box" style="border-radius:var(--radius-lg)"><span class="ds-label">--radius-lg</span></div>
+            <div class="ds-box" style="border-radius:var(--radius-xl)"><span class="ds-label">--radius-xl</span></div>
+            <div class="ds-box" style="border-radius:var(--radius-pill);place-items:center"><span class="ds-label">pill</span></div>
+          </div>
+          <div class="ds-row mt-8">
+            <div class="ds-box" style="border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:0"><span class="ds-label">--shadow-sm</span></div>
+            <div class="ds-box" style="border-radius:var(--radius-lg);box-shadow:var(--shadow-md);border:0"><span class="ds-label">--shadow-md</span></div>
+            <div class="ds-box" style="border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);border:0"><span class="ds-label">--shadow-lg</span></div>
+            <div class="ds-box" style="border-radius:var(--radius-lg);box-shadow:var(--shadow-glow);border:0"><span class="ds-label">--shadow-glow</span></div>
+          </div>
+        </section>
+
+        <!-- BOUTONS -->
+        <section class="ds-section" aria-labelledby="ds-buttons">
+          <p class="eyebrow">05 · Composants</p>
+          <h2 id="ds-buttons" class="display display-md mt-4">Boutons</h2>
+          <p class="lead mt-4">Bouton principal avec tuile flèche (animée au survol). Un seul bouton principal par zone ; hauteur minimale 48 px pour le tactile.</p>
+          <div class="ds-row mt-8">
+            <a class="btn" href="#ds-buttons">.btn<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></span></a>
+            <a class="btn btn--navy" href="#ds-buttons">.btn--navy<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></span></a>
+            <a class="btn btn--light" href="#ds-buttons" style="box-shadow:var(--shadow-sm)">.btn--light<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></span></a>
+            <a class="btn btn--sm" href="#ds-buttons">.btn--sm<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></span></a>
+            <a class="link-arrow" href="#ds-buttons">.link-arrow<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a>
+          </div>
+          <div class="ds-dark ds-row mt-6">
+            <a class="btn" href="#ds-buttons">Sur fond sombre<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></span></a>
+            <a class="btn btn--light" href="#ds-buttons">.btn--light<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></span></a>
+            <a class="btn btn--outline btn--simple" href="#ds-buttons">.btn--outline</a>
+            <span class="eyebrow eyebrow--pill" style="color:rgba(255,255,255,.8)">.eyebrow--pill</span>
+          </div>
+        </section>
+
+        <!-- CARTES -->
+        <section class="ds-section" aria-labelledby="ds-cards">
+          <p class="eyebrow">06 · Composants</p>
+          <h2 id="ds-cards" class="display display-md mt-4">Cartes</h2>
+          <div class="grid grid-3 mt-8" style="background:var(--color-bg-soft);padding:var(--gap-grid);border-radius:var(--radius-xl)">
+            <article class="card feature-card card--hover"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#user-check"/></svg></span><div><h3 class="card__title">.feature-card</h3><p class="card__text mt-2">Carte haute, icône en haut, texte en bas.</p></div></article>
+            <article class="card feature-card feature-card--image"><img src="assets/img/remise-cles.webp" alt="" width="1400" height="934" loading="lazy"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#shield"/></svg></span><div><h3 class="card__title">--image</h3><p class="card__text mt-2">Variante avec photo et dégradé.</p></div></article>
+            <article class="card card--hover"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#gps"/></svg></span><h3 class="card__title mt-4">.card</h3><p class="card__text">Carte simple avec icône.</p></article>
+          </div>
+          <div class="grid grid-3 mt-6 ds-dark">
+            <div class="dark-card"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#zap"/></svg></span><h3 class="title-md">.dark-card</h3><p class="card__text text-sm">Sur fond sombre.</p></div>
+            <div class="dark-card dark-card--highlight"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#card"/></svg></span><h3 class="title-md">--highlight</h3><p class="card__text text-sm">Mise en avant.</p></div>
+            <figure class="review" style="width:auto"><blockquote class="review__text">« .review : carte d'avis client. »</blockquote><figcaption class="review__author"><span class="review__avatar">AB</span><span>Nom<span class="review__meta"><br>Avis Google</span></span></figcaption></figure>
+          </div>
+        </section>
+
+        <!-- FORMULAIRES -->
+        <section class="ds-section" aria-labelledby="ds-forms">
+          <p class="eyebrow">07 · Composants</p>
+          <h2 id="ds-forms" class="display display-md mt-4">Formulaires</h2>
+          <div class="grid grid-2 mt-8">
+            <div class="field"><label for="ds-1">Champ texte <span class="req">*</span></label><input class="input" id="ds-1" placeholder="Placeholder"></div>
+            <div class="field is-invalid"><label for="ds-2">Champ en erreur</label><input class="input" id="ds-2" value="Valeur invalide"><p class="field__error">Message d'erreur explicite.</p></div>
+            <div class="field"><label for="ds-3">Liste</label><select class="select" id="ds-3"><option>Essence</option><option>Électrique</option></select></div>
+            <div class="field"><span class="text-sm" style="font-weight:500">Choix</span><div class="choice-group"><label class="choice"><input type="radio" name="ds-r" checked><span>Option A</span></label><label class="choice"><input type="radio" name="ds-r"><span>Option B</span></label></div></div>
+            <label class="file-drop"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#upload"/></svg><span><strong>Dépôt de fichier</strong>.jpg, .png, .pdf · 2 Mo max.</span><input type="file"></label>
+            <div class="alert"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#alert"/></svg><span>.alert : information importante.</span></div>
+          </div>
+        </section>
+
+        <!-- ICÔNES -->
+        <section class="ds-section" aria-labelledby="ds-icons">
+          <p class="eyebrow">08 · Composants</p>
+          <h2 id="ds-icons" class="display display-md mt-4">Icônes</h2>
+          <p class="lead mt-4">Sprite SVG <code>assets/img/icons.svg</code>, trait 1,6 px. Dans les pages : <code>&#123;&#123;icon:nom&#125;&#125;</code>.</p>
+          <div class="ds-icons mt-8">
+            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg>phone</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#mail"/></svg>mail</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#chat"/></svg>chat</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#clock"/></svg>clock</div>
+            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#gps"/></svg>gps</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#route"/></svg>route</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#shield"/></svg>shield</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg>camera</div>
+            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#users"/></svg>users</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#user-check"/></svg>user-check</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#car"/></svg>car</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#truck"/></svg>truck</div>
+            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#key"/></svg>key</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#layers"/></svg>layers</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#euro"/></svg>euro</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#card"/></svg>card</div>
+            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#zap"/></svg>zap</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#headset"/></svg>headset</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#clipboard"/></svg>clipboard</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#heart"/></svg>heart</div>
+            <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#compass"/></svg>compass</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#globe"/></svg>globe</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#upload"/></svg>upload</div><div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#sparkle"/></svg>sparkle</div>
+          </div>
+        </section>
+
+        <!-- MOUVEMENT -->
+        <section class="ds-section" aria-labelledby="ds-motion">
+          <p class="eyebrow">09 · Mouvement</p>
+          <h2 id="ds-motion" class="display display-md mt-4">Animations</h2>
+          <div class="table-wrap mt-8 prose" style="font-size:var(--fs-sm)">
+            <table>
+              <thead><tr><th>Attribut / classe</th><th>Effet</th></tr></thead>
+              <tbody>
+                <tr><td><code>data-split</code></td><td>Titre révélé mot par mot</td></tr>
+                <tr><td><code>data-reveal</code> (+ <code>fade</code>, <code>scale</code>, <code>left</code>)</td><td>Apparition au scroll ; décalage avec <code>style="--d:1"</code></td></tr>
+                <tr><td><code>data-statement</code></td><td>Texte qui se colore au fil du scroll</td></tr>
+                <tr><td><code>data-count</code></td><td>Compteur animé (<code>data-prefix</code>, <code>data-suffix</code>)</td></tr>
+                <tr><td><code>data-parallax="0.08"</code></td><td>Parallaxe légère d'une image</td></tr>
+                <tr><td><code>.marquee</code></td><td>Bandeau défilant infini</td></tr>
+                <tr><td><code>.hero__bg</code></td><td>Fond WebGL animé avec trame</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="muted text-sm mt-4">Courbe <code>--ease-out</code>, durées <code>--dur-fast</code> 180 ms · <code>--dur-base</code> 340 ms · <code>--dur-slow</code> 700 ms · <code>--dur-reveal</code> 1 s. Toutes les animations sont désactivées si l'utilisateur a choisi de réduire les animations.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/img/logo-alba-blanc-400.png" alt="AlbA Convoyages" width="400" height="161" loading="lazy">
+          <p>La logistique automobile, 100 % humaine. Convoyages de véhicules légers partout en France et en Europe, à partir de 98 € HT.</p>
+          <a class="google-badge" href="https://www.trustindex.io/reviews/www.albaconvoyages.fr" target="_blank" rel="noopener">
+            <span class="google-badge__g"><svg aria-hidden="true"><use href="assets/img/icons.svg#google"/></svg></span>
+            <span><span class="stars" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#star"/></svg><svg class="icon"><use href="assets/img/icons.svg#star"/></svg><svg class="icon"><use href="assets/img/icons.svg#star"/></svg><svg class="icon"><use href="assets/img/icons.svg#star"/></svg><svg class="icon"><use href="assets/img/icons.svg#star"/></svg></span><small>Excellent · 5/5 sur Google</small></span>
+          </a>
+        </div>
+        <div>
+          <h2 class="footer-title">Nos services</h2>
+          <ul class="footer-links">
+            <li><a href="services.html">Convoyages</a></li>
+            <li><a href="services.html#flotte">Gestion de flotte</a></li>
+            <li><a href="services.html#concessions">Livraisons</a></li>
+            <li><a href="services.html#loueurs">Loueurs &amp; assureurs</a></li>
+            <li><a href="services.html#services">Achats &amp; ventes à distance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer-title">Liens utiles</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="devis.html">Recevoir un devis</a></li>
+            <li><a href="devenir-convoyeur.html">Devenir convoyeur</a></li>
+            <li><a href="blog.html">Infos convoyage</a></li>
+            <li><a href="devis.html#faq">Questions fréquentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer-title">Nous contacter</h2>
+          <div class="footer-contact">
+            <a href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg>07 89 62 17 61</a>
+            <a href="mailto:administratif@albaconvoyages.fr"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#mail"/></svg>administratif@albaconvoyages.fr</a>
+            <small>Du lundi au samedi, 8h30 – 19h<br>Une réponse en moins de 30 minutes</small>
+          </div>
+          <div class="socials">
+            <a href="https://www.linkedin.com/company/alba-convoyages" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#linkedin"/></svg></a>
+            <a href="https://whatsapp.com/channel/0029Vb6IM6E4IBhB8UZ8j41o" target="_blank" rel="noopener" aria-label="Chaîne WhatsApp"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#chat"/></svg></a>
+            <a href="https://www.tiktok.com/@albaconvoyages.fr" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#tiktok"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> AlbA Convoyages. Tous droits réservés.</p>
+        <p><a href="mentions-legales.html">Mentions légales</a> · <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a></p>
+      </div>
+      <div class="footer-mega" aria-hidden="true">AlbA Convoyages</div>
+    </div>
+  </footer>
+
+  <div class="mobile-bar" aria-label="Actions rapides">
+    <a class="mobile-bar__call" href="tel:+33789621761" aria-label="Appeler AlbA Convoyages"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg>Appeler</a>
+    <a class="mobile-bar__quote" href="devis.html">Devis gratuit en 30 min<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a>
+  </div>
+
+  <script src="assets/js/hero-shader.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

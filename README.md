@@ -47,12 +47,18 @@ build.py             génère les pages HTML finales à la racine
 
 Raccourcis utilisables dans les pages : `{{icon:phone}}`, `{{arrow}}` (tuile flèche des boutons), `{{stars}}`.
 
+## Design system
+
+La page **`design-system.html`** (non indexée, absente du menu) documente l'ensemble des tokens et des composants : couleurs, typographie, espacements, rayons, ombres, boutons, cartes, formulaires, icônes et animations. Elle sert de référence pour faire évoluer le site ou le reproduire dans Figma, Framer ou WordPress.
+
 ## Design tokens
 
 Toute la charte se trouve dans `assets/css/tokens.css` : changer une valeur la met à jour sur tout le site.
 
 - **Couleurs** : `--navy-900` (#0e285d, sections sombres), `--electric-500` (#005eff, actions), `--ice-100` (#edf7ff, fonds clairs). Le bleu du logo (`--alba-blue`, #0077c0) est conservé.
 - **Typographies** : *Mona Sans* pour les titres, *Golos Text* pour le texte (Google Fonts).
+- **Rythme** : `--section-y` (marge des sections), `--stack-head` (titre de section → contenu), `--stack-lg` (entre deux blocs), `--gap-grid` (entre cartes).
+- **Fond animé des heros** : `--shader-c0` à `--shader-c5` (couleurs), `--shader-speed` (vitesse) et `--shader-texture` (intensité de la trame). Le rendu est fait en WebGL dans `assets/js/hero-shader.js` ; il se met en pause hors écran et se fige si l'utilisateur a choisi de réduire les animations.
 - **Échelle typographique fluide** (`--fs-*`), **espacements** (`--space-*`), **rayons** (`--radius-*`), **ombres** et **durées d'animation**.
 
 ## Formulaires (devis et candidature)
