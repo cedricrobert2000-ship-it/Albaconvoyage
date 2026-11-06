@@ -949,7 +949,7 @@ a.contact-line:hover { background: rgba(255,255,255,.07); }
 .is-loading body { overflow: hidden; }
 .is-loaded .loader { display: none; }
 
-.loader__panel { position: absolute; inset: 0; will-change: transform; }
+.loader__panel { position: absolute; inset: 0; will-change: transform; isolation: isolate; overflow: hidden; }
 .loader__panel--accent { background: var(--electric-500); }
 .loader__panel--main {
   display: grid; place-items: center;
@@ -990,3 +990,4 @@ a.contact-line:hover { background: rgba(255,255,255,.07); }
 /* Le hero s'anime juste après la sortie du loader */
 .with-loader .hero [data-split] .line-inner { --base-delay: 700ms; }
 .with-loader .hero [data-reveal] { transition-delay: calc(var(--d, 0) * 90ms + 700ms); }
+.loader .hero__canvas { transition-duration: .4s; }
