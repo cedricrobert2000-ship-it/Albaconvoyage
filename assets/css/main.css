@@ -401,7 +401,7 @@ body.menu-open { overflow: hidden; }
 .slider { position: relative; }
 .slider__track {
   display: grid; grid-auto-flow: column; grid-auto-columns: min(82%, 340px); gap: var(--gap-grid);
-  overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain;
+  overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain;
   padding-inline: var(--gutter); margin-inline: calc(var(--gutter) * -1);
   scroll-padding-inline: var(--gutter);
 }
