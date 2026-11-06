@@ -68,6 +68,9 @@ Défini dans `_src/layout.html` (balisage et script inline) et `assets/css/main.
 
 ## Formulaires (devis et candidature)
 
+Le hero de l'accueil contient un **mini-formulaire** (départ, arrivée, date) qui envoie vers `devis.html?depart=…&arrivee=…&date=…` : la page devis pré-remplit ces champs et ouvre directement l'étape 2 (véhicule).
+
+
 Dans `assets/js/main.js`, renseigner `FORM_ENDPOINT` avec l'URL d'un service d'envoi (Formspree, Make, Zapier ou une API) pour recevoir les demandes directement, pièces jointes comprises.
 
 Tant que ce champ est vide, l'envoi ouvre la messagerie du visiteur avec un e-mail pré-rempli adressé à `administratif@albaconvoyages.fr`. Dans ce mode, les fichiers (KBIS, RC Circulation) ne sont pas joints automatiquement.

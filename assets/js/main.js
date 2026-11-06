@@ -355,6 +355,21 @@
     form.addEventListener('change', (e) => { const f = e.target.closest('.field, .checkbox-field'); if (f?.classList.contains('is-invalid')) validateField(f); });
     if (steps.length) showStep(0);
 
+    // Pré-remplissage depuis le mini-formulaire de la home (?depart=…&arrivee=…&date=…)
+    const params = new URLSearchParams(location.search);
+    let prefilled = false;
+    ['depart', 'arrivee', 'date'].forEach((name) => {
+      const field = form.querySelector(`[name="${name}"]`);
+      const value = params.get(name);
+      if (field && value) { field.value = value.slice(0, 120); prefilled = true; }
+    });
+    if (prefilled && steps.length) {
+      const first = steps[0];
+      const complete = $$('[required]', first).every((i) => i.checkValidity());
+      if (complete) showStep(1);
+      requestAnimationFrame(() => form.closest('.form-card')?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' }));
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!validateScope(steps.length ? steps[stepIdx] : form)) return;

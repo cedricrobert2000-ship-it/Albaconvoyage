@@ -11,8 +11,8 @@
           <div data-reveal style="--d:3">
             <p class="hero__text">Confiez vos convoyages à une équipe réactive qui connaît personnellement ses convoyeurs. De la planification à la livraison, un interlocuteur dédié et des délais respectés.</p>
             <div class="btn-row">
-              <a class="btn" href="devis.html">Demander un devis{{arrow}}</a>
               <a class="btn btn--outline btn--simple" href="services.html">Découvrir nos services</a>
+              <a class="hero__phone" href="tel:+33789621761">{{icon:phone}}07 89 62 17 61</a>
             </div>
             <ul class="hero__checks">
               <li>{{icon:check}}Devis en 30 minutes</li>
@@ -20,10 +20,19 @@
               <li>{{icon:check}}Suivi GPS de vos véhicules</li>
             </ul>
           </div>
-          <button class="video-card" type="button" data-video="pEKkZTv1v3Y" data-video-title="Fabrice, co-fondateur d'AlbA Convoyages" data-reveal="scale" style="--d:5">
-            <img src="assets/img/fabrice-video.webp" alt="Fabrice, co-fondateur d'AlbA Convoyages, en interview" width="360" height="640" fetchpriority="high">
-            <span class="video-card__play"><span>{{icon:play}}</span><span>Rencontrez Fabrice<small>Co-fondateur · 1 min</small></span></span>
-          </button>
+          <form class="quick-quote" action="devis.html" method="get" data-reveal="scale" style="--d:4" aria-labelledby="qq-title">
+            <div class="quick-quote__head">
+              <p id="qq-title" class="quick-quote__title">Votre devis en 30 minutes</p>
+              <p class="quick-quote__sub">Gratuit · sans engagement · dès 98 € HT</p>
+            </div>
+            <div class="quick-quote__route">
+              <label class="qq-field"><span>Départ</span><input name="depart" required placeholder="Ex. Paris" autocomplete="address-level2"></label>
+              <span class="quick-quote__arrow" aria-hidden="true">{{icon:arrow-r}}</span>
+              <label class="qq-field"><span>Arrivée</span><input name="arrivee" required placeholder="Ex. Lyon"></label>
+            </div>
+            <label class="qq-field"><span>Date souhaitée</span><input type="date" name="date" data-min-today></label>
+            <button class="btn btn--light btn--block" type="submit">Obtenir mon devis{{arrow}}</button>
+          </form>
         </div>
       </div>
 
@@ -178,6 +187,11 @@
         <div class="split split--wide-right">
           <div class="media-frame" data-reveal="scale" style="aspect-ratio:4/4.6">
             <img src="assets/img/equipe-carla-fabrice.webp" alt="Carla et Fabrice au bureau d'AlbA Convoyages" width="1024" height="1024" loading="lazy" data-parallax="0.06">
+            <button class="media-frame__video" type="button" data-video="pEKkZTv1v3Y" data-video-title="Fabrice, co-fondateur d'AlbA Convoyages">
+              <img src="assets/img/fabrice-video.webp" alt="" width="360" height="640" loading="lazy">
+              <span class="media-frame__play">{{icon:play}}</span>
+              <span class="media-frame__video-text">Rencontrez Fabrice<small>Co-fondateur · 1 min</small></span>
+            </button>
             <div class="media-frame__caption">
               <span><strong>Carla &amp; Fabrice</strong><small>Lun. – sam. · 8h30 – 19h</small></span>
               <a class="btn btn--light btn--sm" href="tel:+33789621761">Appeler{{arrow}}</a>
