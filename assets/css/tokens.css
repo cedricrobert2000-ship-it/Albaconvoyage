@@ -6,6 +6,12 @@
    modifier un token = modifier tout le site.
    ========================================================================== */
 
+/* Polices auto-hébergées (licence SIL OFL) : plus rapide, sans appel à Google (RGPD) */
+@font-face { font-family: "Mona Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/mona-sans-latin-400-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Mona Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/mona-sans-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Golos Text"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/golos-text-latin-400-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Golos Text"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/golos-text-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
 :root {
   /* ---------- 1. Palette primitive ---------------------------------------- */
   /* Bleu nuit (sections sombres, titres) */
@@ -56,11 +62,11 @@
 
   --color-text:          var(--navy-900);
   --color-text-muted:    var(--ink-600);
-  --color-text-subtle:   var(--ink-400);
-  --color-text-ghost:    #a9b7cf;  /* mots « fantômes » des titres */
+  --color-text-subtle:   #5f6c88;
+  --color-text-ghost:    #7a8cae;  /* mots « fantômes » des titres (contraste AA grands textes) */
   --color-text-inverse:  var(--white);
   --color-text-inverse-muted: rgba(255, 255, 255, 0.66);
-  --color-text-inverse-ghost: rgba(255, 255, 255, 0.28);
+  --color-text-inverse-ghost: rgba(255, 255, 255, 0.45);
 
   --color-primary:       var(--electric-500);
   --color-primary-hover: var(--electric-600);
@@ -87,7 +93,8 @@
   --shader-c4: #1fa8ff;
   --shader-c5: #5fe3ff;   /* haut : cyan lumineux */
   --shader-speed: 1;       /* vitesse de l'animation */
-  --shader-texture: 1;    /* intensité de la trame (0 = aucune) */
+  --texture-lines: 0.13;  /* trame diagonale statique (0 = aucune) */
+  --texture-opacity: 1;   /* intensité globale de la texture (trame + grain) */
 
   --gradient-card-shade: linear-gradient(180deg, rgba(7, 22, 54, 0) 30%, rgba(7, 22, 54, .86) 100%);
   --gradient-ghost-text: linear-gradient(90deg, var(--navy-900), var(--navy-900));

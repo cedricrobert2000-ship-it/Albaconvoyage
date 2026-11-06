@@ -1,8 +1,9 @@
 /* ==========================================================================
    AlbA Convoyages — Fond animé (WebGL)
    Grandes formes de dégradé lisses qui glissent lentement, halo lumineux qui
-   dérive, voile de lumière qui balaie la surface, réaction douce à la souris,
-   texture (trame diagonale + grain). Couleurs lues depuis les design tokens.
+   dérive, voile de lumière qui balaie la surface, réaction douce à la souris.
+   La texture (trame + grain) est une couche CSS statique posée par-dessus.
+   Couleurs lues depuis les design tokens.
 
    Utilisation : <div class="hero__bg"> ou <div class="shader-bg"> dans un
    conteneur positionné. Options (attributs data-*) :
@@ -35,12 +36,11 @@
     hex('--shader-c5', '#5fe3ff'),
   ];
   const speed = parseFloat(css.getPropertyValue('--shader-speed')) || 1;
-  const texture = parseFloat(css.getPropertyValue('--shader-texture')) || 1;
 
   const VERT = `attribute vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }`;
   const FRAG = `
     precision highp float;
-    uniform vec2 uRes; uniform float uTime; uniform float uDpr; uniform float uTex;
+    uniform vec2 uRes; uniform float uTime;
     uniform vec2 uLight; uniform float uLevel; uniform float uVignette; uniform float uFlat;
     uniform vec2 uMouse; uniform float uMouseAmt;
     uniform vec3 c0; uniform vec3 c1; uniform vec3 c2; uniform vec3 c3; uniform vec3 c4; uniform vec3 c5;
@@ -87,23 +87,25 @@
       vec3 col = palette(v);
       col += band * 0.05 * vec3(0.6, 0.85, 1.0);
 
-      // 5. Texture statique (trame diagonale + grain) posée sur le dégradé qui bouge
-      vec2 px = gl_FragCoord.xy / uDpr;
-      float lines = sin((px.x - px.y) * 2.4) * 0.5 + 0.5;
-      col *= 1.0 - 0.1 * uTex * lines * smoothstep(0.08, 0.8, v);
-      col += (hash(floor(px)) - 0.5) * 0.05 * uTex;   // grain fixe (ne bouge pas)
-
       // 6. Assombrissement du bas pour la lisibilité
       col *= mix(uVignette, 1.0, smoothstep(0.0, 0.55, uv.y));
       gl_FragColor = vec4(col, 1.0);
     }`;
 
-  hosts.forEach((host) => {
+  const init = (host) => {
     const canvas = document.createElement('canvas');
     canvas.className = 'hero__canvas';
     canvas.setAttribute('aria-hidden', 'true');
     const gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' });
     if (!gl) return;
+
+    // Sans carte graphique (rendu logiciel) ou en mode économie de données : image fixe
+    const dbg = gl.getExtension('WEBGL_debug_renderer_info');
+    const renderer = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : '';
+    const software = /swiftshader|llvmpipe|software|softpipe/i.test(renderer);
+    const saveData = navigator.connection && navigator.connection.saveData;
+    const animate = !reduceMotion && !software && !saveData;
+
 
     const compile = (type, src) => {
       const s = gl.createShader(type);
@@ -127,9 +129,8 @@
     gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
 
     const u = (n) => gl.getUniformLocation(prog, n);
-    const uRes = u('uRes'), uTime = u('uTime'), uDpr = u('uDpr'), uMouse = u('uMouse'), uMouseAmt = u('uMouseAmt');
+    const uRes = u('uRes'), uTime = u('uTime'), uMouse = u('uMouse'), uMouseAmt = u('uMouseAmt');
     ramp.forEach((c, i) => gl.uniform3fv(u('c' + i), c));
-    gl.uniform1f(u('uTex'), texture);
     const [lx, ly] = (host.dataset.shaderLight || '0.92,1.1').split(',').map(Number);
     gl.uniform2f(u('uLight'), lx, ly);
     gl.uniform1f(u('uLevel'), parseFloat(host.dataset.shaderLevel || '0'));
@@ -139,20 +140,20 @@
     host.appendChild(canvas);
     host.classList.add('has-shader');
 
-    let dpr = 1;
+    // Le dégradé est flou par nature : on le calcule en basse résolution
+    // (≈ 1/3 de la taille affichée) et le navigateur l'agrandit en douceur.
+    const SCALE = 0.33;
     const resize = () => {
-      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      const w = Math.max(1, Math.round(host.clientWidth * dpr));
-      const h = Math.max(1, Math.round(host.clientHeight * dpr));
+      const w = Math.max(1, Math.round(host.clientWidth * SCALE));
+      const h = Math.max(1, Math.round(host.clientHeight * SCALE));
       if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
       gl.viewport(0, 0, w, h);
       gl.uniform2f(uRes, w, h);
-      gl.uniform1f(uDpr, dpr);
     };
 
     // Souris : position lissée, influence qui monte au survol et retombe ensuite
     const mouse = { x: lx, y: ly, tx: lx, ty: ly, amt: 0, tamt: 0 };
-    if (finePointer && !reduceMotion) {
+    if (finePointer && animate) {
       const zone = host.parentElement;
       zone.addEventListener('pointermove', (e) => {
         const r = host.getBoundingClientRect();
@@ -175,8 +176,14 @@
       gl.uniform1f(uTime, seed + ((now - t0) / 1000) * speed);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     };
-    const loop = (now) => { draw(now); raf = requestAnimationFrame(loop); };
-    const start = () => { if (!raf && visible && !document.hidden && !reduceMotion) raf = requestAnimationFrame(loop); };
+    let last = 0;
+    const loop = (now) => {
+      raf = requestAnimationFrame(loop);
+      if (now - last < 32) return; // ~30 images/s : suffisant pour un mouvement lent
+      last = now;
+      draw(now);
+    };
+    const start = () => { if (!raf && visible && !document.hidden && animate) raf = requestAnimationFrame(loop); };
     const stop = () => { cancelAnimationFrame(raf); raf = 0; };
 
     resize();
@@ -189,5 +196,14 @@
     new IntersectionObserver(([e]) => { visible = e.isIntersecting; visible ? start() : stop(); }).observe(host);
     document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
     start();
-  });
+  };
+
+  // Démarrage différé : la page s'affiche d'abord (dégradé CSS), puis l'animation
+  // prend le relais quand le navigateur est libre. N'impacte ni le LCP ni le TBT.
+  const boot = () => {
+    const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 200));
+    idle(() => hosts.forEach(init), { timeout: 2000 });
+  };
+  if (document.readyState === 'complete') boot();
+  else window.addEventListener('load', boot, { once: true });
 })();

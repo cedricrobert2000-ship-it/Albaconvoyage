@@ -281,19 +281,24 @@ body.menu-open { overflow: hidden; }
   padding-top: calc(var(--header-h) + clamp(2.5rem, 1rem + 6vw, 6rem));
 }
 .hero__bg { position: absolute; inset: 0; z-index: -2; background: var(--gradient-hero); }
-.hero__bg::after {
+.hero__bg::before {
   content: ""; position: absolute; inset: -20%;
   background: radial-gradient(35% 30% at 70% 30%, rgba(127, 208, 255, .35), transparent 70%);
   animation: hero-glow 14s var(--ease-in-out) infinite alternate;
 }
-.hero__grain {
-  position: absolute; inset: 0; z-index: -1; opacity: .14; mix-blend-mode: overlay; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
 /* Canvas WebGL (hero-shader.js) : remplace le dégradé CSS une fois prêt */
 .hero__canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.2s var(--ease-out); }
 .hero__canvas.is-ready { opacity: 1; }
-.hero__bg.has-shader::after { display: none; }
+.hero__bg.has-shader::before { display: none; }
+/* Texture statique (trame diagonale + grain) posée au-dessus du dégradé animé */
+.hero__bg::after, .shader-bg::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    repeating-linear-gradient(135deg, rgba(2, 11, 28, var(--texture-lines)) 0 1px, transparent 1px 2.4px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: var(--texture-opacity);
+}
+.hero__canvas { image-rendering: auto; }
 @keyframes hero-glow { from { transform: translate3d(-6%, 0, 0) scale(1); } to { transform: translate3d(6%, 6%, 0) scale(1.15); } }
 
 .hero__badge { margin-bottom: var(--space-6); }
@@ -785,6 +790,7 @@ a.contact-line:hover { background: rgba(255,255,255,.07); }
 .socials .icon { width: 18px; height: 18px; }
 .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-4); padding-top: var(--space-6); font-size: var(--fs-xs); color: var(--color-text-inverse-muted); }
 .footer-bottom a:hover { color: var(--white); }
+.footer-mega::before { content: "AlbA Convoyages"; }
 .footer-mega { font-family: var(--font-display); font-size: min(12rem, 10.6vw); letter-spacing: -0.06em; line-height: .85; color: rgba(255,255,255,.05); text-align: center; margin-top: var(--space-10); user-select: none; white-space: nowrap; overflow: hidden; }
 
 /* 15. Animations & utilitaires --------------------------------------------- */
@@ -957,8 +963,8 @@ a.contact-line:hover { background: rgba(255,255,255,.07); }
   animation: loader-logo 1s var(--ease-out) .1s forwards; }
 .loader__shine {
   position: absolute; inset: 0;
-  -webkit-mask: url("../img/logo-alba-blanc-400.png") center / contain no-repeat;
-          mask: url("../img/logo-alba-blanc-400.png") center / contain no-repeat;
+  -webkit-mask: url("../img/logo-alba-blanc-400.webp") center / contain no-repeat;
+          mask: url("../img/logo-alba-blanc-400.webp") center / contain no-repeat;
   background: linear-gradient(105deg, transparent 35%, rgba(127,208,255,.95) 50%, transparent 65%) 0 0 / 250% 100% no-repeat;
   background-position: 120% 0;
   animation: loader-shine 1.6s var(--ease-in-out) .7s infinite;

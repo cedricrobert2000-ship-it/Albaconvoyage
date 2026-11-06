@@ -14,15 +14,16 @@
   <meta property="og:description" content="{{description}}">
   <meta property="og:url" content="https://albaconvoyages.fr{{path}}">
   <meta property="og:image" content="https://albaconvoyages.fr/assets/img/{{og_image}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://albaconvoyages.fr/assets/img/{{og_image}}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
   <link rel="icon" href="assets/img/favicon-270.png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Mona+Sans:wght@300..600&display=swap">
-  <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="preload" href="assets/fonts/mona-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/golos-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.min.css">
   <script>
     /* Écran de chargement : uniquement à la première page de la visite */
     (function (d) {
@@ -62,7 +63,7 @@
     <div class="loader__panel loader__panel--main">
       <div class="loader__inner">
         <div class="loader__logo">
-          <img src="assets/img/logo-alba-blanc-400.png" alt="" width="400" height="161">
+          <img src="assets/img/logo-alba-blanc-400.webp" alt="" width="400" height="161">
           <span class="loader__shine"></span>
         </div>
         <div class="loader__bar"><span></span></div>
@@ -96,8 +97,8 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="index.html" aria-label="AlbA Convoyages — accueil">
-        <img class="brand__light" src="assets/img/logo-alba-blanc-400.png" alt="" width="400" height="161">
-        <img class="brand__dark" src="assets/img/logo-alba-400.png" alt="" width="400" height="161">
+        <img class="brand__light" src="assets/img/logo-alba-blanc-260.webp" alt="" width="260" height="105">
+        <img class="brand__dark" src="assets/img/logo-alba-260.webp" alt="" width="260" height="105">
       </a>
       <nav class="nav" aria-label="Navigation principale">
         <ul class="nav__list">
@@ -155,7 +156,7 @@
       </section>
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/img/logo-alba-blanc-400.png" alt="AlbA Convoyages" width="400" height="161" loading="lazy">
+          <img src="assets/img/logo-alba-blanc-260.webp" alt="AlbA Convoyages" width="260" height="105" loading="lazy">
           <p>La logistique automobile, 100 % humaine. Convoyages de véhicules légers partout en France et en Europe, à partir de 98 € HT.</p>
           <a class="google-badge" href="https://www.trustindex.io/reviews/www.albaconvoyages.fr" target="_blank" rel="noopener">
             <span class="google-badge__g"><svg aria-hidden="true"><use href="assets/img/icons.svg#google"/></svg></span>
@@ -200,7 +201,7 @@
         <p>© <span data-year>2026</span> AlbA Convoyages. Tous droits réservés.</p>
         <p><a href="mentions-legales.html">Mentions légales</a> · <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a></p>
       </div>
-      <div class="footer-mega" aria-hidden="true">AlbA Convoyages</div>
+      <div class="footer-mega" aria-hidden="true"></div>
     </div>
   </footer>
 

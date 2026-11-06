@@ -57,9 +57,9 @@ La page **`design-system.html`** (non indexée, absente du menu) documente l'ens
 Toute la charte se trouve dans `assets/css/tokens.css` : changer une valeur la met à jour sur tout le site.
 
 - **Couleurs** : `--navy-900` (#0e285d, sections sombres), `--electric-500` (#005eff, actions), `--ice-100` (#edf7ff, fonds clairs). Le bleu du logo (`--alba-blue`, #0077c0) est conservé.
-- **Typographies** : *Mona Sans* pour les titres, *Golos Text* pour le texte (Google Fonts).
+- **Typographies** : *Mona Sans* pour les titres, *Golos Text* pour le texte, auto-hébergées dans `assets/fonts/` (licence SIL OFL, aucun appel à Google : plus rapide et conforme RGPD).
 - **Rythme** : `--section-y` (marge des sections), `--stack-head` (titre de section → contenu), `--stack-lg` (entre deux blocs), `--gap-grid` (entre cartes).
-- **Fond animé des heros** : `--shader-c0` à `--shader-c5` (couleurs), `--shader-speed` (vitesse) et `--shader-texture` (intensité de la trame). Le rendu est fait en WebGL dans `assets/js/hero-shader.js` ; il se met en pause hors écran et se fige si l'utilisateur a choisi de réduire les animations.
+- **Fond animé des heros** : `--shader-c0` à `--shader-c5` (couleurs), `--shader-speed` (vitesse) ; texture statique `--texture-lines` / `--texture-opacity`. Le dégradé est rendu en WebGL basse résolution dans `assets/js/hero-shader.js` (démarré après le chargement, 30 images/s, pause hors écran, image fixe sans carte graphique ou si l'utilisateur réduit les animations).
 - **Échelle typographique fluide** (`--fs-*`), **espacements** (`--space-*`), **rayons** (`--radius-*`), **ombres** et **durées d'animation**.
 
 ## Écran de chargement
@@ -71,6 +71,16 @@ Défini dans `_src/layout.html` (balisage et script inline) et `assets/css/main.
 Dans `assets/js/main.js`, renseigner `FORM_ENDPOINT` avec l'URL d'un service d'envoi (Formspree, Make, Zapier ou une API) pour recevoir les demandes directement, pièces jointes comprises.
 
 Tant que ce champ est vide, l'envoi ouvre la messagerie du visiteur avec un e-mail pré-rempli adressé à `administratif@albaconvoyages.fr`. Dans ce mode, les fichiers (KBIS, RC Circulation) ne sont pas joints automatiquement.
+
+## Performance & SEO
+
+Scores Lighthouse mesurés (mobile / desktop) : **Performance 92–100, Accessibilité 100, Bonnes pratiques 100, SEO 100**.
+
+- `build.py` regroupe et minifie le CSS (`assets/css/site.min.css`), versionne les fichiers (cache), ajoute les `srcset` responsives et génère `sitemap.xml` + `robots.txt`.
+- Images en WebP avec variantes mobiles (`-700`), dimensions déclarées (pas de décalage de mise en page), chargement différé hors écran.
+- Polices préchargées, fond animé démarré seulement après le chargement de la page.
+- Balises title (≤ 60 caractères) et description (≤ 155) uniques, Open Graph avec images 1200×630, données structurées `LocalBusiness`, `FAQPage` et `BlogPosting`, page `404.html`.
+- À la mise en ligne sur albaconvoyages.fr : soumettre `sitemap.xml` dans Google Search Console et mettre en place les redirections 301 des anciennes URL.
 
 ## Animations et accessibilité
 
