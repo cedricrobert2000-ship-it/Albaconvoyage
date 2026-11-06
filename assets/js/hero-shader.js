@@ -11,7 +11,7 @@
      data-shader-vignette="0.7"    assombrissement du bas (1 = aucun)
      data-shader-flat="0"          aplatit le dégradé vertical (0 → 1)
 
-   - Démarré après le chargement de la page, 30 images/s, pause hors écran
+   - Dessiné à son arrivée à l'écran, pause hors écran / onglet masqué
    - Image fixe sans carte graphique ou si « réduire les animations »
    - Repli automatique sur le dégradé CSS si WebGL est indisponible
    ========================================================================== */
@@ -183,13 +183,7 @@
       gl.uniform1f(uTime, seed + ((now - t0) / 1000) * speed);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     };
-    let last = 0;
-    const loop = (now) => {
-      raf = requestAnimationFrame(loop);
-      if (now - last < 32) return; // ~30 images/s : largement suffisant pour un mouvement lent
-      last = now;
-      draw(now);
-    };
+    const loop = (now) => { draw(now); raf = requestAnimationFrame(loop); };
     const start = () => { if (!raf && visible && !document.hidden && animate) raf = requestAnimationFrame(loop); };
     const stop = () => { cancelAnimationFrame(raf); raf = 0; };
 
@@ -214,12 +208,7 @@
     document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
   };
 
-  // Démarrage différé : la page s'affiche d'abord (dégradé CSS de secours),
-  // puis l'animation prend le relais en fondu quand le navigateur est libre.
-  const boot = () => {
-    const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 200));
-    idle(() => hosts.forEach(init), { timeout: 2000 });
-  };
-  if (document.readyState === 'complete') boot();
-  else window.addEventListener('load', boot, { once: true });
+  // Initialisation immédiate (comme avant) ; chaque fond ne dessine sa première
+  // image qu'à son arrivée à l'écran et ne tourne que lorsqu'il est visible.
+  hosts.forEach(init);
 })();
