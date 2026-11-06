@@ -39,7 +39,8 @@ build.py             génère les pages HTML finales à la racine
    ```bash
    python3 build.py
    ```
-3. Prévisualiser :
+3. (Le build ajoute automatiquement une version `?v=…` aux CSS/JS/icônes : après une mise en ligne, les navigateurs chargent tout de suite les nouveaux fichiers.)
+4. Prévisualiser :
    ```bash
    python3 -m http.server 8080
    ```

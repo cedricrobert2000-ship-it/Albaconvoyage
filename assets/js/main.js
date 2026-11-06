@@ -16,8 +16,8 @@
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const ICONS = document.documentElement.dataset.icons || 'assets/img/icons.svg';
-  const icon = (id) => `<svg class="icon" aria-hidden="true"><use href="${ICONS}#${id}"/></svg>`;
+  const ICONS = document.documentElement.dataset.icons || 'assets/img/icons.svg#';
+  const icon = (id) => `<svg class="icon" aria-hidden="true"><use href="${ICONS}${id}"/></svg>`;
 
   /* ---------- Header : état au scroll + masquage intelligent ---------- */
   const header = $('.site-header');

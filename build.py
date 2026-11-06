@@ -15,6 +15,7 @@ Des raccourcis sont disponibles dans les pages :
   {{arrow}}     -> tuile flèche des boutons
   {{stars}}     -> 5 étoiles
 """
+import hashlib
 import json
 import pathlib
 import re
@@ -39,7 +40,22 @@ def expand(html: str) -> str:
     return re.sub(r"\{\{icon:([\w-]+)\}\}", lambda m: icon(m.group(1)), html)
 
 
+def asset_version() -> str:
+    """Empreinte des CSS/JS/icônes : change dès qu'un fichier change,
+    ce qui force les navigateurs à recharger la nouvelle version (cache busting)."""
+    h = hashlib.sha1()
+    for f in sorted([*ROOT.glob("assets/css/*.css"), *ROOT.glob("assets/js/*.js"), ROOT / "assets/img/icons.svg"]):
+        h.update(f.read_bytes())
+    return h.hexdigest()[:8]
+
+
+def bust(html: str, version: str) -> str:
+    return re.sub(r'((?:href|src)="assets/(?:css|js)/[\w.-]+\.(?:css|js))"', rf'\1?v={version}"', html) \
+             .replace('assets/img/icons.svg#', f'assets/img/icons.svg?v={version}#')
+
+
 def build() -> None:
+    version = asset_version()
     layout = (SRC / "layout.html").read_text(encoding="utf-8")
     for page in sorted((SRC / "pages").glob("*.html")):
         raw = page.read_text(encoding="utf-8")
@@ -65,7 +81,7 @@ def build() -> None:
         for key, val in values.items():
             out = out.replace("{{" + key + "}}", val)
         out = out.replace("{{content}}", content.rstrip())
-        (ROOT / page.name).write_text(out, encoding="utf-8")
+        (ROOT / page.name).write_text(bust(out, version), encoding="utf-8")
         print(f"✓ {page.name}")
 
 
