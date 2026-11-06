@@ -55,6 +55,10 @@ def build() -> None:
             "path": meta.get("path", "/" + ("" if page.stem == "index" else page.name)),
             "og_image": meta.get("og_image", "equipe-carla-fabrice.webp"),
             "head_extra": meta.get("head_extra", ""),
+            "cta_title": meta.get("cta_title", "Prêt à nous confier vos convoyages ?"),
+            "cta_text": meta.get("cta_text", "Décrivez-nous votre besoin. Carla ou Fabrice vous répond dans l'heure avec un devis adapté à votre activité."),
+            "cta_btn": meta.get("cta_btn", "Demander un devis gratuit"),
+            "cta_href": meta.get("cta_href", "devis.html"),
         }
         for nav in NAVS:
             values[f"nav_{nav}"] = ' aria-current="page"' if meta.get("nav") == nav else ""

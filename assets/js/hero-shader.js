@@ -1,23 +1,31 @@
 /* ==========================================================================
-   AlbA Convoyages — Fond animé des heros (WebGL)
-   Dégradé fluide déformé par du bruit (domain warping) + texture fine
-   (lignes diagonales + grain). Couleurs lues depuis les design tokens.
-   - Se met en pause hors écran et quand l'onglet est masqué
-   - Image fixe si « réduire les animations » est activé
+   AlbA Convoyages — Fond animé (WebGL)
+   Dégradé fluide déformé par du bruit (domain warping), halo lumineux qui
+   dérive, voile de lumière qui balaie la surface, réaction douce à la souris,
+   texture (trame diagonale + grain). Couleurs lues depuis les design tokens.
+
+   Utilisation : <div class="hero__bg"> ou <div class="shader-bg"> dans un
+   conteneur positionné. Options (attributs data-*) :
+     data-shader-light="0.92,1.1"  position du halo (0–1, origine en bas à gauche)
+     data-shader-level="0"         éclaircit (+) ou assombrit (–) l'ensemble
+     data-shader-vignette="0.7"    assombrissement du bas (1 = aucun)
+     data-shader-flat="0"          aplatit le dégradé vertical (0 → 1)
+
+   - Pause hors écran / onglet masqué ; image fixe si « réduire les animations »
    - Repli automatique sur le dégradé CSS si WebGL est indisponible
    ========================================================================== */
 (() => {
   'use strict';
-  const hosts = document.querySelectorAll('.hero__bg');
+  const hosts = document.querySelectorAll('.hero__bg, .shader-bg');
   if (!hosts.length) return;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
 
   const css = getComputedStyle(document.documentElement);
   const hex = (name, fallback) => {
     const v = (css.getPropertyValue(name) || fallback).trim().replace('#', '');
     return [0, 2, 4].map((i) => parseInt(v.slice(i, i + 2), 16) / 255);
   };
-  // Rampe de couleurs du bas (sombre) vers le haut (lumineux)
   const ramp = [
     hex('--shader-c0', '#020b1c'),
     hex('--shader-c1', '#062b66'),
@@ -33,6 +41,8 @@
   const FRAG = `
     precision highp float;
     uniform vec2 uRes; uniform float uTime; uniform float uDpr; uniform float uTex;
+    uniform vec2 uLight; uniform float uLevel; uniform float uVignette; uniform float uFlat;
+    uniform vec2 uMouse; uniform float uMouseAmt;
     uniform vec3 c0; uniform vec3 c1; uniform vec3 c2; uniform vec3 c3; uniform vec3 c4; uniform vec3 c5;
 
     float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
@@ -55,32 +65,40 @@
       return mix(c4, c5, (t - 0.86) / 0.14);
     }
     void main(){
-      vec2 uv = gl_FragCoord.xy / uRes;          // (0,0) en bas à gauche
+      vec2 uv = gl_FragCoord.xy / uRes;
       float aspect = uRes.x / uRes.y;
       vec2 p = vec2(uv.x * aspect, uv.y);
       float t = uTime;
 
-      // Déformation fluide (domain warping) à grande échelle : formes douces
-      vec2 q = vec2(fbm(p * 0.55 + vec2(0.0, t * 0.05)), fbm(p * 0.55 + vec2(5.2, 1.3) - t * 0.045));
-      vec2 r = vec2(fbm(p * 0.7 + 1.6 * q + vec2(1.7, 9.2) + t * 0.035), fbm(p * 0.7 + 1.6 * q + vec2(8.3, 2.8) - t * 0.03));
-      float n = fbm(p * 0.6 + 1.8 * r);
+      // 1. Matière fluide : double déformation du bruit, qui coule en continu
+      vec2 q = vec2(fbm(p * 0.6 + vec2(t * 0.09, t * 0.05)), fbm(p * 0.6 + vec2(5.2, 1.3) - t * 0.08));
+      vec2 r = vec2(fbm(p * 0.8 + 1.9 * q + vec2(1.7, 9.2) + t * 0.07), fbm(p * 0.8 + 1.9 * q + vec2(8.3, 2.8) - t * 0.06));
+      float n = fbm(p * 0.7 + 2.2 * r);
 
-      // Halo lumineux en haut à droite, qui dérive et respire lentement
-      vec2 light = vec2(aspect * (0.9 + 0.08 * sin(t * 0.18)), 1.12 + 0.06 * cos(t * 0.14));
-      float glow = 1.0 - smoothstep(0.0, 1.1, distance(p, light) + (n - 0.5) * 0.35);
+      // 2. Halo principal qui orbite lentement + attiré par la souris
+      vec2 lp = vec2(uLight.x * aspect, uLight.y);
+      lp += vec2(0.16 * sin(t * 0.23) * aspect * 0.5, 0.1 * cos(t * 0.19));
+      lp = mix(lp, vec2(uMouse.x * aspect, uMouse.y), uMouseAmt * 0.35);
+      float glow = 1.0 - smoothstep(0.0, 1.15, distance(p, lp) + (n - 0.5) * 0.5);
 
-      // Dégradé principal vertical (sombre en bas), légèrement ondulé par le bruit
-      float v = uv.y * 0.72 + glow * 0.42 + (n - 0.5) * 0.22 - 0.2;
+      // 3. Voile de lumière diagonal qui balaie la surface
+      float sweep = uv.x * 0.55 + uv.y * 0.9 - 0.95 - 0.35 * sin(t * 0.21) + (n - 0.5) * 0.6;
+      float band = exp(-sweep * sweep * 9.0);
+
+      // 4. Composition
+      float vert = mix(uv.y, 0.5, uFlat);
+      float v = vert * 0.66 + glow * 0.46 + band * 0.16 + (n - 0.5) * 0.34 - 0.2 + uLevel;
       vec3 col = palette(v);
+      col += band * 0.05 * vec3(0.6, 0.85, 1.0);
 
-      // Texture : fines lignes diagonales (comme une trame) + grain
+      // 5. Texture : trame diagonale fine + grain animé
       vec2 px = gl_FragCoord.xy / uDpr;
       float lines = sin((px.x - px.y) * 2.4) * 0.5 + 0.5;
-      col *= 1.0 - 0.09 * uTex * lines * smoothstep(0.1, 0.8, v);
-      col += (hash(px + fract(t * 7.0)) - 0.5) * 0.045 * uTex;
+      col *= 1.0 - 0.1 * uTex * lines * smoothstep(0.08, 0.8, v);
+      col += (hash(px + fract(t * 7.0)) - 0.5) * 0.05 * uTex;
 
-      // Vignettage bas pour la lisibilité du texte
-      col *= mix(0.7, 1.0, smoothstep(0.0, 0.5, uv.y));
+      // 6. Assombrissement du bas pour la lisibilité
+      col *= mix(uVignette, 1.0, smoothstep(0.0, 0.55, uv.y));
       gl_FragColor = vec4(col, 1.0);
     }`;
 
@@ -88,8 +106,8 @@
     const canvas = document.createElement('canvas');
     canvas.className = 'hero__canvas';
     canvas.setAttribute('aria-hidden', 'true');
-    const gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power', preserveDrawingBuffer: false });
-    if (!gl) return; // repli CSS
+    const gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' });
+    if (!gl) return;
 
     const compile = (type, src) => {
       const s = gl.createShader(type);
@@ -113,9 +131,14 @@
     gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
 
     const u = (n) => gl.getUniformLocation(prog, n);
-    const uRes = u('uRes'), uTime = u('uTime'), uDpr = u('uDpr'), uTex = u('uTex');
+    const uRes = u('uRes'), uTime = u('uTime'), uDpr = u('uDpr'), uMouse = u('uMouse'), uMouseAmt = u('uMouseAmt');
     ramp.forEach((c, i) => gl.uniform3fv(u('c' + i), c));
-    gl.uniform1f(uTex, texture);
+    gl.uniform1f(u('uTex'), texture);
+    const [lx, ly] = (host.dataset.shaderLight || '0.92,1.1').split(',').map(Number);
+    gl.uniform2f(u('uLight'), lx, ly);
+    gl.uniform1f(u('uLevel'), parseFloat(host.dataset.shaderLevel || '0'));
+    gl.uniform1f(u('uVignette'), parseFloat(host.dataset.shaderVignette || '0.7'));
+    gl.uniform1f(u('uFlat'), parseFloat(host.dataset.shaderFlat || '0'));
 
     host.appendChild(canvas);
     host.classList.add('has-shader');
@@ -131,10 +154,28 @@
       gl.uniform1f(uDpr, dpr);
     };
 
+    // Souris : position lissée, influence qui monte au survol et retombe ensuite
+    const mouse = { x: lx, y: ly, tx: lx, ty: ly, amt: 0, tamt: 0 };
+    if (finePointer && !reduceMotion) {
+      const zone = host.parentElement;
+      zone.addEventListener('pointermove', (e) => {
+        const r = host.getBoundingClientRect();
+        mouse.tx = (e.clientX - r.left) / r.width;
+        mouse.ty = 1 - (e.clientY - r.top) / r.height;
+        mouse.tamt = 1;
+      });
+      zone.addEventListener('pointerleave', () => { mouse.tamt = 0; });
+    }
+
     const seed = Math.random() * 40;
     let visible = true, raf = 0;
     const t0 = performance.now();
     const draw = (now) => {
+      mouse.x += (mouse.tx - mouse.x) * 0.04;
+      mouse.y += (mouse.ty - mouse.y) * 0.04;
+      mouse.amt += (mouse.tamt - mouse.amt) * 0.03;
+      gl.uniform2f(uMouse, mouse.x, mouse.y);
+      gl.uniform1f(uMouseAmt, mouse.amt);
       gl.uniform1f(uTime, seed + ((now - t0) / 1000) * speed);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     };

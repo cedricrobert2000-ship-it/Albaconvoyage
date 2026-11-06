@@ -376,7 +376,7 @@ body.menu-open { overflow: hidden; }
   transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), background var(--dur-base);
 }
 .card--bordered { border: 1px solid var(--color-border); }
-.card--hover:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
 .card__icon {
   display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px;
   background: var(--color-bg-soft); color: var(--navy-900);
@@ -393,7 +393,7 @@ body.menu-open { overflow: hidden; }
 .feature-card--image { color: var(--white); overflow: hidden; background: var(--navy-800); isolation: isolate; }
 .feature-card--image > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform var(--dur-slow) var(--ease-out); }
 .feature-card--image::after { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--gradient-card-shade); }
-.feature-card--image:hover > img { transform: scale(1.06); }
+
 .feature-card--image .card__text { color: rgba(255,255,255,.82); }
 .feature-card--image .card__icon { color: var(--white); }
 
@@ -471,7 +471,7 @@ body.menu-open { overflow: hidden; }
   background: var(--color-card-inverse); border: 1px solid var(--color-border-inverse);
   transition: background var(--dur-base), transform var(--dur-base) var(--ease-out);
 }
-.dark-card:hover { background: var(--color-card-inverse-hover); }
+
 .dark-card .card__icon { background: rgba(255,255,255,.08); color: var(--white); width: 36px; height: 36px; border-radius: 9px; margin-bottom: var(--space-2); }
 @media (min-width: 900px) { .dark-card .card__icon { margin-bottom: var(--space-6); } }
 .dark-card .card__icon .icon { width: 18px; height: 18px; }
@@ -571,7 +571,7 @@ body.menu-open { overflow: hidden; }
 /* Équipe */
 .team-card { position: relative; border-radius: var(--radius-xl); overflow: hidden; background: linear-gradient(180deg, var(--ice-200), var(--ice-100)); aspect-ratio: 3 / 4.6; isolation: isolate; }
 .team-card > img { position: absolute; inset: 14px 0 0 0; width: 100%; height: calc(100% - 14px); object-fit: cover; object-position: 50% 0; z-index: -1; transition: transform 1s var(--ease-out); }
-.team-card:hover > img { transform: scale(1.03); }
+
 .team-card__body { position: absolute; inset: auto 10px 10px 10px; padding: var(--space-4); border-radius: var(--radius-lg); background: rgba(255,255,255,.86); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
 .team-card__name { font-family: var(--font-display); font-size: var(--fs-lg); letter-spacing: var(--ls-snug); }
 .team-card__role { font-size: var(--fs-xs); color: var(--color-text-muted); margin-bottom: var(--space-3); }
@@ -714,7 +714,7 @@ a.contact-line:hover { background: rgba(255,255,255,.07); }
 /* Éligibilité convoyeur */
 .eligibility { display: grid; gap: var(--gap-stack); }
 .elig-item { position: relative; display: flex; gap: 16px; align-items: flex-start; padding: var(--space-5); border-radius: var(--radius-lg); background: var(--white); border: 1px solid var(--color-border); cursor: pointer; transition: border-color var(--dur-base), box-shadow var(--dur-base), transform var(--dur-base) var(--ease-out); }
-.elig-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.elig-item:hover { border-color: var(--ink-300); }
 .elig-item input { position: absolute; opacity: 0; }
 .elig-item__box { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; border: 1.5px solid var(--ink-300); flex: none; color: transparent; transition: all var(--dur-base) var(--ease-out); }
 .elig-item__box .icon { width: 16px; height: 16px; stroke-width: 2.6; }
@@ -829,3 +829,79 @@ a.contact-line:hover { background: rgba(255,255,255,.07); }
 .reassure { display: grid; gap: 12px; margin-top: var(--space-6); }
 .reassure li { display: flex; gap: 12px; font-size: var(--fs-sm); color: var(--color-text-muted); }
 .reassure .icon { width: 18px; height: 18px; color: var(--electric-500); margin-top: 2px; }
+
+
+/* ==========================================================================
+   16. Fond animé réutilisable (.shader-bg) & CTA du footer
+   ========================================================================== */
+.shader-bg { position: absolute; inset: 0; z-index: -1; overflow: hidden; background: var(--gradient-hero); }
+.section--shader { isolation: isolate; overflow: hidden; background: var(--navy-950); }
+.section--shader .dark-card { background: rgba(7, 22, 54, .38); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-color: rgba(255,255,255,.12); }
+.section--shader .dark-card--highlight { background: linear-gradient(160deg, rgba(0,94,255,.45), rgba(7,22,54,.35)); }
+
+.footer-cta { padding-top: clamp(1.5rem, 1rem + 2vw, 3rem); }
+.footer-cta__card {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: grid; justify-items: center; gap: var(--space-5); text-align: center;
+  padding: clamp(3.5rem, 2rem + 6vw, 7rem) var(--space-6);
+  border-radius: var(--radius-xl); border: 1px solid rgba(255,255,255,.1);
+}
+.footer-cta__card p { color: rgba(255,255,255,.82); max-width: 50ch; }
+.footer-cta__actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-4) var(--space-6); margin-top: var(--space-3); }
+.footer-cta__rating { display: grid; gap: 2px; text-align: left; font-size: var(--fs-xs); color: rgba(255,255,255,.75); }
+.footer-cta__rating strong { display: inline-flex; align-items: center; gap: 8px; color: var(--white); font-size: var(--fs-sm); font-weight: var(--fw-medium); }
+.site-footer { padding-top: 0; }
+.site-footer .footer-grid { padding-top: var(--stack-lg); }
+
+/* ==========================================================================
+   17. Animation des icônes
+   - icônes de cartes statiques : tracé dessiné à l'apparition, re-tracé au survol
+   - éléments cliquables : l'icône s'anime au survol
+   - icônes isolées sur un élément statique : animation douce en boucle
+   ========================================================================== */
+@keyframes icon-draw { from { stroke-dashoffset: 160; } to { stroke-dashoffset: 0; } }
+@keyframes icon-loop { 0% { stroke-dashoffset: 160; } 22%, 100% { stroke-dashoffset: 0; } }
+@keyframes icon-nudge { 0%, 100% { transform: translate(0, 0); } 40% { transform: translate(2px, -2px); } 70% { transform: translate(-1px, 1px); } }
+@keyframes icon-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+
+.card__icon .icon, .service-card__icon .icon, .step__body li .icon, .compare li .icon,
+.trust-item .icon, .reassure .icon, .hero__checks .icon, .contact-line__icon .icon, .socials .icon, .elig-item__box .icon {
+  stroke-dasharray: 160; stroke-dashoffset: 0;
+}
+/* Tracé à l'apparition */
+.js [data-reveal] .card__icon .icon,
+.js [data-reveal] .step__body li .icon,
+.js [data-reveal] .compare li .icon { stroke-dashoffset: 160; }
+.js [data-reveal].is-in .card__icon .icon,
+.js [data-reveal].is-in .step__body li .icon,
+.js [data-reveal].is-in .compare li .icon { animation: icon-draw 1.4s var(--ease-out) forwards; animation-delay: calc(var(--d, 0) * 90ms + 350ms); }
+
+/* Cartes statiques avec texte : seule l'icône réagit au survol (la carte ne bouge pas) */
+.card:hover .card__icon .icon, .dark-card:hover .card__icon .icon { animation: icon-draw 1s var(--ease-out) both; }
+.card__icon, .dark-card .card__icon { transition: background var(--dur-base), color var(--dur-base); }
+.card:not(.feature-card):hover .card__icon { background: var(--ice-200); color: var(--electric-500); }
+.feature-card:not(.feature-card--image):hover .card__icon { color: var(--electric-500); }
+.dark-card:hover .card__icon { background: rgba(255,255,255,.14); }
+
+/* Éléments cliquables : l'icône s'anime au survol */
+.service-card:hover .service-card__icon .icon,
+.contact-line:hover .contact-line__icon .icon,
+.socials a:hover .icon,
+.footer-contact a:hover .icon { animation: icon-draw .9s var(--ease-out) both; }
+.service-card__icon { transition: background var(--dur-base), transform var(--dur-base) var(--ease-out); }
+.service-card:hover .service-card__icon { background: var(--electric-500); transform: translateY(-2px); }
+.link-arrow:hover .icon, .header-phone:hover .icon { animation: icon-nudge .6s var(--ease-out); }
+.post-card .post-card__title { transition: color var(--dur-base); }
+.post-card:hover .post-card__title { color: var(--electric-500); }
+.video-tile:hover .video-tile__play .icon, .video-card:hover .video-card__play .icon { animation: icon-float 1.2s var(--ease-in-out) infinite; }
+
+/* Icônes isolées sur des éléments statiques : re-tracé en boucle, décalé */
+.trust-item .icon, .reassure .icon, .hero__checks .icon { animation: icon-loop 6s var(--ease-out) infinite; }
+.reassure li:nth-child(2) .icon, .hero__checks li:nth-child(2) .icon, .trust-item:nth-child(4) .icon { animation-delay: 1.5s; }
+.reassure li:nth-child(3) .icon, .hero__checks li:nth-child(3) .icon, .trust-item:nth-child(6) .icon { animation-delay: 3s; }
+.reassure li:nth-child(4) .icon, .trust-item:nth-child(8) .icon { animation-delay: 4.5s; }
+.accordion__icon { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card__icon .icon, .step__body li .icon, .compare li .icon, .trust-item .icon, .reassure .icon, .hero__checks .icon { stroke-dashoffset: 0 !important; animation: none !important; }
+}

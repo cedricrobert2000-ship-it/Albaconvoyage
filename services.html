@@ -125,7 +125,7 @@
           </div>
         </div>
         <div class="grid grid-3 mt-12">
-          <article class="card feature-card card--hover" data-reveal style="--d:0">
+          <article class="card feature-card" data-reveal style="--d:0">
             <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#clock"/></svg></span>
             <div><h3 class="card__title">Disponibilité</h3><p class="card__text mt-2">Du lundi au samedi de 8h30 à 19h, par téléphone, e-mail ou WhatsApp.</p></div>
           </article>
@@ -134,7 +134,7 @@
             <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#heart"/></svg></span>
             <div><h3 class="card__title">Proximité</h3><p class="card__text mt-2">Carla et Fabrice connaissent chaque convoyeur et suivent personnellement chaque mission.</p></div>
           </article>
-          <article class="card feature-card card--hover" data-reveal style="--d:2">
+          <article class="card feature-card" data-reveal style="--d:2">
             <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#zap"/></svg></span>
             <div><h3 class="card__title">Réactivité</h3><p class="card__text mt-2">Devis en 30 minutes en moyenne, intervention en 24 h pour les urgences.</p></div>
           </article>
@@ -234,10 +234,10 @@
           <h2 id="incl-title" class="display display-lg" data-split>Aucune surprise. <span class="ghost">Tout compris dès 98&nbsp;€&nbsp;HT.</span></h2>
         </div>
         <div class="grid grid-4">
-          <article class="card card--hover" data-reveal style="--d:0"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg></span><h3 class="card__title mt-4">État des lieux numérique</h3><p class="card__text">Rapport photographique complet au départ et à l'arrivée, transmis en temps réel.</p></article>
-          <article class="card card--hover" data-reveal style="--d:1"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#gps"/></svg></span><h3 class="card__title mt-4">Suivi GPS en direct</h3><p class="card__text">Traçabilité complète : vous savez où est votre véhicule à tout moment de la mission.</p></article>
-          <article class="card card--hover" data-reveal style="--d:2"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#shield"/></svg></span><h3 class="card__title mt-4">Assurance tous risques</h3><p class="card__text">Souscrite par chaque convoyeur partenaire. Votre responsabilité est protégée dès la prise en charge.</p></article>
-          <article class="card card--hover" data-reveal style="--d:3"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#users"/></svg></span><h3 class="card__title mt-4">Convoyeurs fidèles</h3><p class="card__text">Des professionnels connus de Carla et Fabrice, sensibles à la sécurité routière et à la relation client.</p></article>
+          <article class="card" data-reveal style="--d:0"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg></span><h3 class="card__title mt-4">État des lieux numérique</h3><p class="card__text">Rapport photographique complet au départ et à l'arrivée, transmis en temps réel.</p></article>
+          <article class="card" data-reveal style="--d:1"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#gps"/></svg></span><h3 class="card__title mt-4">Suivi GPS en direct</h3><p class="card__text">Traçabilité complète : vous savez où est votre véhicule à tout moment de la mission.</p></article>
+          <article class="card" data-reveal style="--d:2"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#shield"/></svg></span><h3 class="card__title mt-4">Assurance tous risques</h3><p class="card__text">Souscrite par chaque convoyeur partenaire. Votre responsabilité est protégée dès la prise en charge.</p></article>
+          <article class="card" data-reveal style="--d:3"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#users"/></svg></span><h3 class="card__title mt-4">Convoyeurs fidèles</h3><p class="card__text">Des professionnels connus de Carla et Fabrice, sensibles à la sécurité routière et à la relation client.</p></article>
         </div>
       </div>
     </section>
@@ -280,25 +280,24 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ CTA ============ -->
-    <section class="section section--tight-top" aria-labelledby="cta-title">
-      <div class="container">
-        <div class="cta-banner" data-reveal="scale">
-          <img src="assets/img/concession.webp" alt="" width="1400" height="934" loading="lazy" data-parallax="0.08">
-          <h2 id="cta-title" class="display display-lg">Votre besoin correspond à l'un de ces services ?</h2>
-          <p>Carla ou Fabrice vous répond en moyenne sous 30 minutes avec un devis adapté. Un besoin particulier ? Parlons-en directement.</p>
-          <div class="btn-row">
-            <a class="btn btn--light" href="devis.html">Obtenir mon devis gratuit<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></span></a>
-            <a class="btn btn--outline btn--simple" href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg>Je veux échanger avec vous</a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
+      <section class="footer-cta" aria-labelledby="footer-cta-title">
+        <div class="footer-cta__card" data-reveal="scale">
+          <div class="shader-bg" aria-hidden="true" data-shader-light="0.5,1.25" data-shader-level="0.06" data-shader-flat="0.7" data-shader-vignette="1"></div>
+          <h2 id="footer-cta-title" class="display display-lg">Votre besoin correspond à l'un de ces services ?</h2>
+          <p>Carla ou Fabrice vous répond en moyenne sous 30 minutes avec un devis adapté. Un besoin particulier ? Parlons-en directement.</p>
+          <div class="footer-cta__actions">
+            <a class="btn btn--light" href="devis.html">Obtenir mon devis gratuit<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></span></a>
+            <div class="footer-cta__rating">
+              <strong>5/5 <span class="stars" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#star"/></svg><svg class="icon"><use href="assets/img/icons.svg#star"/></svg><svg class="icon"><use href="assets/img/icons.svg#star"/></svg><svg class="icon"><use href="assets/img/icons.svg#star"/></svg><svg class="icon"><use href="assets/img/icons.svg#star"/></svg></span></strong>
+              <span>Avis Google · <a href="tel:+33789621761" style="text-decoration:underline">07 89 62 17 61</a></span>
+            </div>
+          </div>
+        </div>
+      </section>
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="assets/img/logo-alba-blanc-400.png" alt="AlbA Convoyages" width="400" height="161" loading="lazy">
