@@ -93,8 +93,9 @@
   --shader-c4: #1fa8ff;
   --shader-c5: #5fe3ff;   /* haut : cyan lumineux */
   --shader-speed: 1;       /* vitesse de l'animation */
-  --texture-lines: 0.13;  /* trame diagonale statique (0 = aucune) */
-  --texture-opacity: 1;   /* intensité globale de la texture (trame + grain) */
+  --shader-texture: 1;    /* intensité de la trame + grain de l'animation (0 = aucune) */
+  --texture-lines: 0.13;  /* trame du fond de secours sans WebGL */
+  --texture-opacity: 1;   /* intensité de la texture de secours */
 
   --gradient-card-shade: linear-gradient(180deg, rgba(7, 22, 54, 0) 30%, rgba(7, 22, 54, .86) 100%);
   --gradient-ghost-text: linear-gradient(90deg, var(--navy-900), var(--navy-900));
