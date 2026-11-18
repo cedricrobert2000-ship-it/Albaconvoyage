@@ -59,9 +59,9 @@ def quick_quote(profil: str = "entreprise") -> str:
             </div>
             <div class="segmented" role="radiogroup" aria-label="Vous êtes">{radio("entreprise", "Entreprise")}{radio("particulier", "Particulier")}</div>
             <div class="quick-quote__route">
-              <label class="qq-field"><span>Départ</span><input name="depart" required placeholder="Ex. Paris" autocomplete="address-level2"></label>
+              <label class="qq-field"><span>Départ</span><input name="depart" required placeholder="Ex. Paris" data-autocomplete="commune"></label>
               <span class="quick-quote__arrow" aria-hidden="true">{{{{icon:arrow-r}}}}</span>
-              <label class="qq-field"><span>Arrivée</span><input name="arrivee" required placeholder="Ex. Lyon"></label>
+              <label class="qq-field"><span>Arrivée</span><input name="arrivee" required placeholder="Ex. Lyon" data-autocomplete="commune"></label>
             </div>
             <label class="qq-field"><span>Type de véhicule</span><select name="vehicule" required><option value="">Choisir…</option>{options}</select></label>
             <button class="btn btn--light btn--block" type="submit">Obtenir mon devis{{{{arrow}}}}</button>

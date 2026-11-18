@@ -55,10 +55,10 @@
                   </div>
                 </div>
                 <div class="form-row form-row--2">
-                  <div class="field"><label for="depart">Ville de départ <span class="req">*</span></label><input class="input" id="depart" name="depart" data-label="Ville de départ" required autocomplete="address-level2" placeholder="Ex. Rueil-Malmaison"><p class="field__error">Indiquez la ville de départ.</p></div>
-                  <div class="field"><label for="arrivee">Ville d'arrivée <span class="req">*</span></label><input class="input" id="arrivee" name="arrivee" data-label="Ville d'arrivée" required placeholder="Ex. Lyon"><p class="field__error">Indiquez la ville d'arrivée.</p></div>
+                  <div class="field"><label for="depart">Ville de départ <span class="req">*</span></label><input class="input" id="depart" name="depart" data-label="Ville de départ" required data-autocomplete="commune" placeholder="Ex. Rueil-Malmaison"><p class="field__error">Indiquez la ville de départ.</p></div>
+                  <div class="field"><label for="arrivee">Ville d'arrivée <span class="req">*</span></label><input class="input" id="arrivee" name="arrivee" data-label="Ville d'arrivée" required data-autocomplete="commune" placeholder="Ex. Lyon"><p class="field__error">Indiquez la ville d'arrivée.</p></div>
                 </div>
-                <div class="field"><label for="date">Date de livraison souhaitée <span class="req">*</span></label><input class="input" type="date" id="date" name="date" data-label="Date de livraison souhaitée" required data-min-today><p class="field__error">Choisissez une date.</p></div>
+                <div class="field"><label for="date">Date de livraison souhaitée <span class="req">*</span></label><input class="input" type="date" id="date" name="date" data-label="Date de livraison souhaitée" required data-min-today data-format="date"><p class="field__error">Choisissez une date.</p></div>
                 <div class="form-nav"><span></span><button class="btn" type="button" data-next-step>Continuer{{arrow}}</button></div>
               </fieldset>
 
@@ -70,11 +70,11 @@
                     <option value="">Choisir…</option><option>Citadine</option><option>Berline</option><option>SUV / 4x4</option><option>Monospace</option><option>Utilitaire léger (≤ 3,5 t)</option>
                   </select><p class="field__error">Choisissez le type de véhicule.</p></div>
                 <div class="form-row form-row--2">
-                  <div class="field"><label for="marque">Marque <span class="req">*</span></label><input class="input" id="marque" name="marque" data-label="Marque" required placeholder="Ex. Peugeot"><p class="field__error">Indiquez la marque.</p></div>
+                  <div class="field"><label for="marque">Marque <span class="req">*</span></label><input class="input" id="marque" name="marque" data-label="Marque" required placeholder="Ex. Peugeot" list="marques" autocomplete="off"><datalist id="marques"><option value="Peugeot"><option value="Renault"><option value="Citroën"><option value="Dacia"><option value="Volkswagen"><option value="Toyota"><option value="Ford"><option value="Fiat"><option value="Opel"><option value="Skoda"><option value="Seat"><option value="Cupra"><option value="Kia"><option value="Hyundai"><option value="Nissan"><option value="BMW"><option value="Mercedes-Benz"><option value="Audi"><option value="Tesla"><option value="Volvo"><option value="DS"><option value="MG"><option value="Mini"><option value="Jeep"><option value="Land Rover"><option value="Porsche"><option value="Suzuki"><option value="Mazda"><option value="Iveco"></datalist><p class="field__error">Indiquez la marque.</p></div>
                   <div class="field"><label for="modele">Modèle <span class="req">*</span></label><input class="input" id="modele" name="modele" data-label="Modèle" required placeholder="Ex. 3008"><p class="field__error">Indiquez le modèle.</p></div>
                 </div>
                 <div class="form-row form-row--2">
-                  <div class="field"><label for="immat">Immatriculation <span class="req">*</span></label><input class="input" id="immat" name="immatriculation" data-label="Immatriculation" required placeholder="AB-123-CD ou n° de série" autocapitalize="characters"><p class="field__error">Indiquez l'immatriculation (ou le n° de série pour un véhicule neuf).</p></div>
+                  <div class="field"><label for="immat">Immatriculation <span class="req">*</span></label><input class="input" id="immat" name="immatriculation" data-label="Immatriculation" required placeholder="AB-123-CD" data-format="plaque" maxlength="17" autocapitalize="characters"><p class="field__hint">Format AB-123-CD, ou n° de série (17 caractères) pour un véhicule neuf.</p><p class="field__error">Indiquez l'immatriculation (ou le n° de série pour un véhicule neuf).</p></div>
                   <div class="field"><label for="motorisation">Motorisation <span class="req">*</span></label>
                     <select class="select" id="motorisation" name="motorisation" data-label="Motorisation" required>
                       <option value="">Choisir…</option><option>Essence</option><option>Diesel</option><option>Hybride</option><option>Électrique</option>
@@ -87,16 +87,16 @@
               <!-- Étape 3 -->
               <fieldset class="form-step" style="border:0;padding:0">
                 <legend class="form-step__title">Vos coordonnées</legend>
-                <div class="field" data-show-if="entreprise"><label for="societe">Société <span class="req">*</span></label><input class="input" id="societe" name="societe" data-label="Société" required autocomplete="organization"><p class="field__error">Indiquez le nom de votre société.</p></div>
+                <div class="field" data-show-if="entreprise"><label for="societe">Société <span class="req">*</span></label><input class="input" id="societe" name="societe" data-label="Société" required data-autocomplete="entreprise" placeholder="Commencez à taper le nom de votre société"><input type="hidden" name="siret" data-label="SIRET"><p class="field__hint">Sélectionnez votre société : son adresse de facturation est remplie automatiquement.</p><p class="field__error">Indiquez le nom de votre société.</p></div>
                 <div class="form-row form-row--2">
-                  <div class="field"><label for="prenom">Prénom <span class="req">*</span></label><input class="input" id="prenom" name="prenom" data-label="Prénom" required autocomplete="given-name"><p class="field__error">Indiquez votre prénom.</p></div>
-                  <div class="field"><label for="nom">Nom <span class="req">*</span></label><input class="input" id="nom" name="nom" data-label="Nom" required autocomplete="family-name"><p class="field__error">Indiquez votre nom.</p></div>
+                  <div class="field"><label for="prenom">Prénom <span class="req">*</span></label><input class="input" id="prenom" name="prenom" data-label="Prénom" required data-format="nom" autocomplete="given-name"><p class="field__error">Indiquez votre prénom.</p></div>
+                  <div class="field"><label for="nom">Nom <span class="req">*</span></label><input class="input" id="nom" name="nom" data-label="Nom" required data-format="nom" autocomplete="family-name"><p class="field__error">Indiquez votre nom.</p></div>
                 </div>
                 <div class="form-row form-row--2">
                   <div class="field"><label for="email">E-mail <span class="req">*</span></label><input class="input" type="email" id="email" name="email" data-label="E-mail" required autocomplete="email"><p class="field__error">Indiquez une adresse e-mail valide.</p></div>
-                  <div class="field"><label for="tel">Téléphone <span class="req">*</span></label><input class="input" type="tel" id="tel" name="telephone" data-label="Téléphone" required autocomplete="tel" pattern="[0-9+ ().-]{10,}"><p class="field__error">Indiquez un numéro de téléphone valide.</p></div>
+                  <div class="field"><label for="tel">Téléphone <span class="req">*</span></label><input class="input" type="tel" id="tel" name="telephone" data-label="Téléphone" required autocomplete="tel" inputmode="tel" placeholder="06 12 34 56 78"><p class="field__error">Indiquez un numéro de téléphone valide.</p></div>
                 </div>
-                <div class="field"><label for="facturation">Adresse de facturation <span class="req">*</span></label><input class="input" id="facturation" name="facturation" data-label="Adresse de facturation" required autocomplete="street-address"><p class="field__error">Indiquez l'adresse de facturation.</p></div>
+                <div class="field"><label for="facturation">Adresse de facturation <span class="req">*</span></label><input class="input" id="facturation" name="facturation" data-label="Adresse de facturation" required data-autocomplete="adresse" placeholder="N° et rue, code postal, ville"><p class="field__error">Indiquez l'adresse de facturation.</p></div>
                 <div class="field"><label for="message">Précisions (accès, horaires, contacts sur place…)</label><textarea class="textarea" id="message" name="message" data-label="Précisions"></textarea></div>
                 <div class="checkbox-field field">
                   <label class="checkbox"><input type="checkbox" name="rgpd" value="Accepté" data-label="Consentement RGPD" required><span>J'autorise AlbA Convoyages à traiter les données transmises via ce formulaire dans le cadre de la relation commerciale. Voir notre <a href="mentions-legales.html#confidentialite">politique de confidentialité</a>.</span></label>

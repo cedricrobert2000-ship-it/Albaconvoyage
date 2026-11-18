@@ -73,6 +73,13 @@ Défini dans `_src/layout.html` (balisage et script inline) et `assets/css/main.
 
 ## Formulaires (devis et candidature)
 
+**Champs intelligents** (`assets/js/forms.js`, activés par attributs) :
+- `data-format="plaque"` : saisie mise en forme AB-123-CD (tirets ajoutés automatiquement) ; ancien format et n° de série acceptés.
+- `data-format="date"` : refuse une date passée ou au-delà de 12 mois, avec message clair.
+- `type="tel"` / `type="email"` : téléphone mis en forme (06 12 34 56 78), e-mail vérifié avec suggestion en cas de faute de frappe (gmial.com → gmail.com).
+- `data-format="nom"` : majuscules automatiques (jean-pierre → Jean-Pierre).
+- `data-autocomplete="commune|adresse|entreprise"` : suggestions via les API publiques gratuites de l'État (geo.api.gouv.fr, Base Adresse Nationale, annuaire des entreprises). Choisir une société remplit l'adresse de facturation et le SIRET.
+
 Le hero de l'accueil contient un **mini-formulaire** (départ, arrivée, date) qui envoie vers `devis.html?depart=…&arrivee=…&date=…` : la page devis pré-remplit ces champs et ouvre directement l'étape 2 (véhicule).
 
 

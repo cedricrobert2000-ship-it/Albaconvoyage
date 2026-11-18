@@ -365,7 +365,10 @@
     inputs.forEach((input) => {
       if (input.type === 'radio') {
         if (input.required && !$$(`input[name="${input.name}"]`, field).some((r) => r.checked)) valid = false;
-      } else if (!input.checkValidity()) valid = false;
+      } else {
+        window.albaValidate?.(input); // règles métier (plaque, date, téléphone, e-mail) — voir forms.js
+        if (!input.checkValidity()) valid = false;
+      }
     });
     field.classList.toggle('is-invalid', !valid);
     return valid;

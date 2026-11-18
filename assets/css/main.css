@@ -671,7 +671,7 @@ body.menu-open { overflow: hidden; }
 .form-step__title { font-size: var(--fs-lg); margin-bottom: var(--space-2); }
 .form-row { display: grid; gap: var(--space-5); }
 @media (min-width: 640px) { .form-row--2 { grid-template-columns: 1fr 1fr; } }
-.field { display: grid; gap: 6px; }
+.field { display: grid; gap: 6px; align-content: start; }
 .field label, .field legend { font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--navy-900); }
 .field .req { color: var(--electric-500); }
 .field__hint { font-size: var(--fs-xs); color: var(--color-text-muted); }
@@ -935,11 +935,6 @@ a.contact-line:hover { background: rgba(255,255,255,.07); }
   .hero:not(.page-hero) .hero__checks { margin-top: clamp(1rem, 2.5vh, 1.5rem); }
   .hero:not(.page-hero) .hero__trust { flex: none; padding-block: clamp(14px, 2.2vh, 22px); }
 }
-@media (min-width: 900px) and (max-height: 820px) {
-  .hero:not(.page-hero) .hero__title { font-size: min(var(--fs-4xl), 9vh); }
-  .hero:not(.page-hero) .hero__checks { display: none; }
-  .hero:not(.page-hero) .hero__text { font-size: var(--fs-base); }
-}
 
 /* ==========================================================================
    18. Écran de chargement (première page de la visite uniquement)
@@ -1025,16 +1020,10 @@ a.contact-line:hover { background: rgba(255,255,255,.07); }
 .hero__phone .icon { width: 16px; height: 16px; }
 .hero__phone:hover { color: var(--white); }
 @media (max-width: 899px) { .quick-quote { justify-self: stretch; max-width: none; } }
-@media (min-width: 900px) and (max-height: 820px) { .quick-quote { padding: 16px; gap: 10px; } .quick-quote__sub { display: none; } }
 
 @media (max-width: 899px) {
   .hero:not(.page-hero) .hero__bottom { margin-top: var(--space-8); }
   .hero:not(.page-hero) .quick-quote { order: -1; }
-}
-@media (min-width: 900px) and (max-height: 820px) {
-  .hero:not(.page-hero) .hero__title { font-size: min(var(--fs-4xl), 8.5vh); }
-  .quick-quote__head { display: none; }
-  .quick-quote__arrow { height: 48px; }
 }
 
 /* Vidéo de Fabrice mise en avant dans le hero (en haut à droite, à côté du titre) */
@@ -1043,9 +1032,6 @@ a.contact-line:hover { background: rgba(255,255,255,.07); }
 @media (min-width: 900px) {
   .hero__top { grid-template-columns: 1fr auto; align-items: end; gap: var(--space-8); }
   .hero__top .video-card { justify-self: end; width: clamp(260px, 24vw, 360px); max-height: none; }
-}
-@media (min-width: 900px) and (max-height: 820px) {
-  .hero__top .video-card { width: clamp(220px, 20vw, 300px); }
 }
 @media (max-width: 899px) {
   /* Mobile : titre, formulaire, texte, puis la vidéo */
@@ -1120,7 +1106,6 @@ a.contact-line:hover { background: rgba(255,255,255,.07); }
 .qq-field select option { color: var(--navy-900); background: var(--white); }
 .quick-quote__proof { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: var(--fs-xs); color: rgba(255,255,255,.75); }
 .quick-quote__proof .stars .icon { width: 13px; height: 13px; }
-@media (min-width: 900px) and (max-height: 820px) { .quick-quote__proof { display: none; } }
 
 /* Champs affichés selon le profil (formulaire de devis) */
 [data-show-if][hidden] { display: none !important; }
@@ -1171,3 +1156,73 @@ a.contact-line:hover { background: rgba(255,255,255,.07); }
 }
 .page-hero__grid--form .quick-quote { justify-self: end; }
 @media (max-width: 959px) { .page-hero__grid--form .quick-quote { justify-self: stretch; max-width: none; } }
+
+/* ==========================================================================
+   22. Hero d'accueil fluide sur desktop
+   Tout est dimensionné sur la hauteur de la fenêtre (vh) : le hero remplit
+   exactement l'écran, du 1280×720 au 2560×1440, CTA et widget toujours visibles.
+   ========================================================================== */
+@media (min-width: 900px) {
+  .hero:not(.page-hero) {
+    height: 100vh; height: 100svh; min-height: 600px;
+    padding-top: calc(var(--header-h) + clamp(.75rem, 3vh, 3rem));
+  }
+  .hero:not(.page-hero) .hero__badge { margin-bottom: clamp(.5rem, 2vh, 1.5rem); }
+  .hero:not(.page-hero) .hero__title { font-size: clamp(2.5rem, min(9vh, 6.4vw), 7rem); }
+  .hero:not(.page-hero) .hero__top { gap: clamp(1rem, 3vw, 3rem); }
+  .hero:not(.page-hero) .hero__top .video-card { width: clamp(200px, min(30vh, 26vw), 380px); }
+  .hero:not(.page-hero) .hero__bottom { margin-top: auto; padding-top: clamp(.75rem, 3vh, 3rem); padding-bottom: clamp(.75rem, 3vh, 3rem); gap: clamp(1rem, 3vw, 3rem); }
+  .hero:not(.page-hero) .hero__text { font-size: clamp(.9375rem, 1.9vh, 1.1875rem); }
+  .hero:not(.page-hero) .hero__text + .btn-row { margin-top: clamp(.75rem, 2.5vh, 2rem); }
+  .hero:not(.page-hero) .hero__checks { margin-top: clamp(.5rem, 2vh, 1.5rem); }
+  .hero:not(.page-hero) .hero__trust { padding-block: clamp(10px, 1.8vh, 22px); }
+
+  .hero .quick-quote { max-width: clamp(360px, 32vw, 460px); padding: clamp(14px, 2.2vh, 22px); gap: clamp(6px, 1.2vh, 12px); }
+  .hero .quick-quote__title { font-size: clamp(1rem, 2.4vh, 1.4rem); }
+  .hero .qq-field { gap: clamp(3px, .6vh, 6px); }
+  .hero .qq-field input, .hero .qq-field select { min-height: clamp(38px, 5.2vh, 50px); }
+  .hero .quick-quote__arrow { height: clamp(38px, 5.2vh, 50px); }
+  .hero .segmented span { min-height: clamp(32px, 4.4vh, 42px); }
+  .hero .quick-quote .btn { min-height: clamp(42px, 5.6vh, 50px); }
+}
+/* Écrans peu hauts : on retire d'abord le secondaire, jamais les CTA */
+@media (min-width: 900px) and (max-height: 980px) {
+  .hero:not(.page-hero) .hero__checks, .hero .quick-quote__sub, .hero .quick-quote__proof { display: none; }
+  .hero:not(.page-hero) .hero__title { font-size: clamp(2.5rem, min(8.2vh, 6.2vw), 7rem); }
+}
+@media (min-width: 900px) and (max-height: 820px) {
+  .hero .quick-quote__head { display: none; }
+  .hero:not(.page-hero) .hero__title { font-size: clamp(2.25rem, min(7.4vh, 6vw), 7rem); }
+  .hero:not(.page-hero) .hero__top .video-card { width: clamp(180px, min(26vh, 24vw), 300px); }
+}
+
+/* ==========================================================================
+   23. Autocomplétion, suggestions et messages d'erreur dynamiques
+   ========================================================================== */
+.ac { position: relative; }
+.ac__list {
+  position: absolute; z-index: 30; top: calc(100% + 6px); left: 0; right: 0; min-width: 240px;
+  max-height: 280px; overflow-y: auto; padding: 6px;
+  border-radius: var(--radius-md); background: var(--white); color: var(--navy-900);
+  box-shadow: var(--shadow-lg); border: 1px solid var(--color-border);
+}
+.ac__list [role="option"] { display: grid; gap: 1px; padding: 9px 12px; border-radius: 10px; cursor: pointer; }
+.ac__list [role="option"]:hover, .ac__list [role="option"][aria-selected="true"] { background: var(--ice-100); }
+.ac__label { font-size: var(--fs-sm); font-weight: var(--fw-medium); }
+.ac__sub { font-size: var(--fs-xs); color: var(--color-text-muted); }
+
+.field__suggest { font-size: var(--fs-xs); color: var(--color-text-muted); }
+.field__suggest button { color: var(--electric-500); font-weight: var(--fw-medium); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Erreurs dans le widget sombre du hero */
+.qq-field .field__error { display: none; font-size: var(--fs-xs); font-weight: var(--fw-medium); color: #ffb4b4; }
+.qq-field.is-invalid .field__error { display: block; }
+.qq-field.is-invalid input, .qq-field.is-invalid select { border-color: #ff8a8a; }
+
+/* Libellé de la vidéo sur les petites vignettes */
+.video-card__play > span:last-child { white-space: nowrap; }
+@media (min-width: 900px) and (max-height: 820px) {
+  .video-card__play { font-size: var(--fs-xs); left: 10px; bottom: 10px; gap: 8px; }
+  .video-card__play small { display: none; }
+  .video-card__play > span:first-child { width: 32px; height: 32px; }
+}
