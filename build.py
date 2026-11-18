@@ -27,7 +27,8 @@ import re
 
 ROOT = pathlib.Path(__file__).parent
 SRC = ROOT / "_src"
-NAVS = ["accueil", "services", "convoyeur", "blog", "devis"]
+NAVS = ["accueil", "pros", "particuliers", "convoyeur", "apropos", "faq", "blog", "devis"]
+GROUPS = {"prestations": ["pros", "particuliers"], "apropos": ["apropos", "faq", "blog"]}
 SITE = "https://albaconvoyages.fr"
 CSS_SOURCES = ["assets/css/tokens.css", "assets/css/main.css"]
 
@@ -42,7 +43,34 @@ STARS = '<span class="stars" aria-label="5 étoiles sur 5">' + "".join(
 ) + "</span>"
 
 
+VEHICULES = ["Citadine", "Berline", "SUV / 4x4", "Monospace", "Utilitaire léger (≤ 3,5 t)"]
+
+
+def quick_quote(profil: str = "entreprise") -> str:
+    """Widget de devis (hero) : profil, trajet et type de véhicule -> devis.html pré-rempli."""
+    def radio(value, label):
+        checked = " checked" if value == profil else ""
+        return f'<label><input type="radio" name="profil" value="{value}"{checked}><span>{label}</span></label>'
+    options = "".join(f"<option>{v}</option>" for v in VEHICULES)
+    return f'''<form class="quick-quote" action="devis.html" method="get" data-reveal="scale" style="--d:4" aria-labelledby="qq-title">
+            <div class="quick-quote__head">
+              <p id="qq-title" class="quick-quote__title">Votre devis en 30 minutes</p>
+              <p class="quick-quote__sub">Gratuit · sans engagement · dès 98 € HT</p>
+            </div>
+            <div class="segmented" role="radiogroup" aria-label="Vous êtes">{radio("entreprise", "Entreprise")}{radio("particulier", "Particulier")}</div>
+            <div class="quick-quote__route">
+              <label class="qq-field"><span>Départ</span><input name="depart" required placeholder="Ex. Paris" autocomplete="address-level2"></label>
+              <span class="quick-quote__arrow" aria-hidden="true">{{{{icon:arrow-r}}}}</span>
+              <label class="qq-field"><span>Arrivée</span><input name="arrivee" required placeholder="Ex. Lyon"></label>
+            </div>
+            <label class="qq-field"><span>Type de véhicule</span><select name="vehicule" required><option value="">Choisir…</option>{options}</select></label>
+            <button class="btn btn--light btn--block" type="submit">Obtenir mon devis{{{{arrow}}}}</button>
+            <p class="quick-quote__proof">{{{{stars}}}}<span>5/5 sur Google · avis vérifiés</span></p>
+          </form>'''
+
+
 def expand(html: str) -> str:
+    html = re.sub(r"\{\{quickquote(?::(\w+))?\}\}", lambda m: quick_quote(m.group(1) or "entreprise"), html)
     html = html.replace("{{arrow}}", ARROW).replace("{{stars}}", STARS)
     return re.sub(r"\{\{icon:([\w-]+)\}\}", lambda m: icon(m.group(1)), html)
 
@@ -129,9 +157,12 @@ def build() -> None:
         }
         for nav in NAVS:
             values[f"nav_{nav}"] = ' aria-current="page"' if meta.get("nav") == nav else ""
+        for group, members in GROUPS.items():
+            values[f"cur_{group}"] = " is-current" if meta.get("nav") in members else ""
         for key, val in values.items():
             out = out.replace("{{" + key + "}}", val)
         out = out.replace("{{content}}", content.rstrip())
+        out = expand(out)
         (ROOT / page.name).write_text(bust(responsive_images(out), version), encoding="utf-8")
         if "noindex" not in meta.get("head_extra", ""):
             urls.append(values["path"])

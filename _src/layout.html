@@ -104,10 +104,22 @@
       </a>
       <nav class="nav" aria-label="Navigation principale">
         <ul class="nav__list">
-          <li><a class="nav__link" href="index.html"{{nav_accueil}}>Accueil</a></li>
-          <li><a class="nav__link" href="services.html"{{nav_services}}>Nos services</a></li>
+          <li class="nav__item nav__item--drop">
+            <button class="nav__link nav__trigger{{cur_prestations}}" type="button" aria-expanded="false" aria-controls="dd-prestations">Prestations{{icon:chev-d}}</button>
+            <div class="nav__drop" id="dd-prestations">
+              <a class="nav__drop-link" href="services.html"{{nav_pros}}><span class="nav__drop-icon">{{icon:layers}}</span><span><strong>Professionnels</strong><small>Flottes, concessions, loueurs &amp; assureurs</small></span></a>
+              <a class="nav__drop-link" href="particuliers.html"{{nav_particuliers}}><span class="nav__drop-icon">{{icon:key}}</span><span><strong>Particuliers</strong><small>Achat, vente ou livraison de votre véhicule</small></span></a>
+            </div>
+          </li>
           <li><a class="nav__link" href="devenir-convoyeur.html"{{nav_convoyeur}}>Devenir convoyeur</a></li>
-          <li><a class="nav__link" href="blog.html"{{nav_blog}}>Infos convoyage</a></li>
+          <li class="nav__item nav__item--drop">
+            <button class="nav__link nav__trigger{{cur_apropos}}" type="button" aria-expanded="false" aria-controls="dd-apropos">À propos{{icon:chev-d}}</button>
+            <div class="nav__drop" id="dd-apropos">
+              <a class="nav__drop-link" href="a-propos.html"{{nav_apropos}}><span class="nav__drop-icon">{{icon:users}}</span><span><strong>Qui sommes-nous</strong><small>Carla, Fabrice et nos convoyeurs</small></span></a>
+              <a class="nav__drop-link" href="faq.html"{{nav_faq}}><span class="nav__drop-icon">{{icon:chat}}</span><span><strong>Questions fréquentes</strong><small>Clients et convoyeurs</small></span></a>
+              <a class="nav__drop-link" href="blog.html"{{nav_blog}}><span class="nav__drop-icon">{{icon:file}}</span><span><strong>Infos convoyage</strong><small>Conseils et coulisses du métier</small></span></a>
+            </div>
+          </li>
           <li><a class="nav__link" href="devis.html"{{nav_devis}}>Contact</a></li>
         </ul>
       </nav>
@@ -123,8 +135,13 @@
     <nav aria-label="Navigation mobile">
       <ul class="mobile-menu__list">
         <li><a href="index.html"{{nav_accueil}}>Accueil<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
-        <li><a href="services.html"{{nav_services}}>Nos services<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
+        <li class="mobile-menu__group">Prestations</li>
+        <li><a href="services.html"{{nav_pros}}>Professionnels<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
+        <li><a href="particuliers.html"{{nav_particuliers}}>Particuliers<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
+        <li class="mobile-menu__group">AlbA Convoyages</li>
         <li><a href="devenir-convoyeur.html"{{nav_convoyeur}}>Devenir convoyeur<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
+        <li><a href="a-propos.html"{{nav_apropos}}>Qui sommes-nous<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
+        <li><a href="faq.html"{{nav_faq}}>Questions fréquentes<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
         <li><a href="blog.html"{{nav_blog}}>Infos convoyage<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
         <li><a href="devis.html"{{nav_devis}}>Contact &amp; devis<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow-ur"/></svg></a></li>
       </ul>
@@ -166,23 +183,30 @@
           </a>
         </div>
         <div>
-          <h2 class="footer-title">Nos services</h2>
+          <h2 class="footer-title">Prestations</h2>
           <ul class="footer-links">
-            <li><a href="services.html">Convoyages</a></li>
+            <li><a href="services.html">Professionnels</a></li>
+            <li><a href="particuliers.html">Particuliers</a></li>
             <li><a href="services.html#flotte">Gestion de flotte</a></li>
-            <li><a href="services.html#concessions">Livraisons</a></li>
+            <li><a href="services.html#concessions">Livraisons concessions</a></li>
             <li><a href="services.html#loueurs">Loueurs &amp; assureurs</a></li>
-            <li><a href="services.html#services">Achats &amp; ventes à distance</a></li>
           </ul>
         </div>
         <div>
-          <h2 class="footer-title">Liens utiles</h2>
+          <h2 class="footer-title">Convoyeurs</h2>
           <ul class="footer-links">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="devis.html">Recevoir un devis</a></li>
             <li><a href="devenir-convoyeur.html">Devenir convoyeur</a></li>
+            <li><a href="devenir-convoyeur.html#conditions">Vérifier mon éligibilité</a></li>
+            <li><a href="faq.html#convoyeurs">FAQ convoyeurs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer-title">À propos</h2>
+          <ul class="footer-links">
+            <li><a href="a-propos.html">Qui sommes-nous</a></li>
+            <li><a href="faq.html">FAQ clients</a></li>
             <li><a href="blog.html">Infos convoyage</a></li>
-            <li><a href="devis.html#faq">Questions fréquentes</a></li>
+            <li><a href="devis.html">Nous contacter</a></li>
           </ul>
         </div>
         <div>
@@ -190,6 +214,7 @@
           <div class="footer-contact">
             <a href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg>07 89 62 17 61</a>
             <a href="mailto:administratif@albaconvoyages.fr"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#mail"/></svg>administratif@albaconvoyages.fr</a>
+            <span class="footer-contact__line"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#pin"/></svg>9 avenue Alexandre Maistrasse, 92500 Rueil-Malmaison</span>
             <small>Du lundi au samedi, 8h30 – 19h<br>Une réponse en moins de 30 minutes</small>
           </div>
           <div class="socials">

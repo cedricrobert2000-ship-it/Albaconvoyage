@@ -7,13 +7,18 @@ Nouveau site vitrine d'[albaconvoyages.fr](https://albaconvoyages.fr), avec une 
 | Page | Fichier | Ancienne URL WordPress |
 |---|---|---|
 | Accueil | `index.html` | `/` |
-| Nos services | `services.html` | `/nos-services/` |
-| Devis & contact (+ FAQ) | `devis.html` | `/contact-devis-convoyage/` |
+| Professionnels | `services.html` | `/nos-services/` |
+| Particuliers | `particuliers.html` | — |
 | Devenir convoyeur | `devenir-convoyeur.html` | `/devenir-convoyeur/` |
+| Qui sommes-nous | `a-propos.html` | — |
+| FAQ clients & convoyeurs | `faq.html` | — |
+| Devis & contact | `devis.html` | `/contact-devis-convoyage/` |
 | Infos convoyage (blog) | `blog.html` | `/blog/` |
 | Article : convoyage urgent | `convoyage-urgent-24-48h.html` | `/blog/livraison-vehicule-24-48-heures/` |
 | Article : choisir son prestataire | `choisir-prestataire-convoyage.html` | `/blog/choisir-prestataire-convoyage-automobile/` |
 | Mentions légales | `mentions-legales.html` | `/politique-de-confidentialite/` |
+
+**Parcours utilisateur** : le widget de devis (`{{quickquote}}` / `{{quickquote:particulier}}` dans les pages) propose Entreprise / Particulier, départ, arrivée et type de véhicule, puis ouvre `devis.html` pré-rempli. Le formulaire de devis adapte ses champs au profil (société et besoin uniquement pour les entreprises).
 
 Lors de la mise en ligne, prévoir des **redirections 301** des anciennes URL vers les nouvelles, pour conserver le référencement.
 

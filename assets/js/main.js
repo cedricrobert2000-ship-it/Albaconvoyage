@@ -54,6 +54,31 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && document.body.classList.contains('menu-open')) { setMenu(false); burger.focus(); } });
   }
 
+  /* ---------- Menus déroulants du header ---------- */
+  const drops = $$('.nav__item--drop');
+  const closeDrops = (except) => drops.forEach((d) => {
+    if (d === except) return;
+    d.classList.remove('is-open');
+    $('.nav__trigger', d).setAttribute('aria-expanded', 'false');
+  });
+  drops.forEach((d) => {
+    const trigger = $('.nav__trigger', d);
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = !d.classList.contains('is-open');
+      closeDrops(d);
+      d.classList.toggle('is-open', open);
+      trigger.setAttribute('aria-expanded', String(open));
+    });
+    d.addEventListener('focusout', (e) => { if (!d.contains(e.relatedTarget)) closeDrops(); });
+  });
+  document.addEventListener('click', () => closeDrops());
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const open = drops.find((d) => d.classList.contains('is-open'));
+    if (open) { closeDrops(); $('.nav__trigger', open).focus(); }
+  });
+
   /* ---------- Titres : révélation mot par mot ---------- */
   $$('[data-split]').forEach((el) => {
     let i = 0;
@@ -217,6 +242,28 @@
     auto();
   });
 
+  /* ---------- Onglets (avis Professionnels / Particuliers / Convoyeurs) ---------- */
+  $$('[data-tabs]').forEach((root) => {
+    const tabs = $$('[role="tab"]', root);
+    const select = (idx, focus) => {
+      tabs.forEach((t, i) => {
+        const on = i === idx;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        const panel = document.getElementById(t.getAttribute('aria-controls'));
+        if (panel) panel.hidden = !on;
+      });
+      if (focus) tabs[idx].focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(i));
+      t.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); select((i + 1) % tabs.length, true); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); select((i - 1 + tabs.length) % tabs.length, true); }
+      });
+    });
+  });
+
   /* ---------- Process : étape active dans la navigation sticky ---------- */
   $$('[data-process]').forEach((root) => {
     const links = $$('.process__nav a', root);
@@ -355,19 +402,43 @@
     form.addEventListener('change', (e) => { const f = e.target.closest('.field, .checkbox-field'); if (f?.classList.contains('is-invalid')) validateField(f); });
     if (steps.length) showStep(0);
 
-    // Pré-remplissage depuis le mini-formulaire de la home (?depart=…&arrivee=…&date=…)
+    // Champs affichés selon le profil (Entreprise / Particulier)
+    const applyProfile = () => {
+      const profil = form.querySelector('[name="profil"]:checked')?.value;
+      $$('[data-show-if]', form).forEach((block) => {
+        const show = block.dataset.showIf === profil;
+        block.hidden = !show;
+        $$('input, select, textarea', block).forEach((input) => {
+          if (input.type === 'radio') return;
+          if (!show) { input.dataset.wasRequired = input.required ? '1' : input.dataset.wasRequired || ''; input.required = false; }
+          else if (input.dataset.wasRequired === '1') input.required = true;
+        });
+      });
+    };
+    $$('[name="profil"]', form).forEach((r) => r.addEventListener('change', applyProfile));
+
+    // Pré-remplissage depuis le widget du hero (?profil=…&depart=…&arrivee=…&vehicule=…)
     const params = new URLSearchParams(location.search);
     let prefilled = false;
-    ['depart', 'arrivee', 'date'].forEach((name) => {
+    ['depart', 'arrivee', 'date', 'vehicule'].forEach((name) => {
       const field = form.querySelector(`[name="${name}"]`);
       const value = params.get(name);
-      if (field && value) { field.value = value.slice(0, 120); prefilled = true; }
+      if (!field || !value) return;
+      if (field.tagName === 'SELECT' && ![...field.options].some((o) => o.value === value || o.text === value)) return;
+      field.value = value.slice(0, 120);
+      prefilled = true;
     });
+    const profilParam = params.get('profil');
+    const profilRadio = profilParam && form.querySelector(`[name="profil"][value="${profilParam === 'particulier' ? 'particulier' : 'entreprise'}"]`);
+    if (profilRadio) profilRadio.checked = true;
+    applyProfile();
     if (prefilled && steps.length) {
-      const first = steps[0];
-      const complete = $$('[required]', first).every((i) => i.checkValidity());
-      if (complete) showStep(1);
-      requestAnimationFrame(() => form.closest('.form-card')?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' }));
+      requestAnimationFrame(() => {
+        form.closest('.form-card')?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+        const firstEmpty = $$('[required]', steps[0]).find((i) => !i.checkValidity());
+        if (firstEmpty) firstEmpty.focus({ preventScroll: true });
+        else showStep(1);
+      });
     }
 
     form.addEventListener('submit', async (e) => {

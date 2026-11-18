@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="fr" data-icons="assets/img/icons.svg?v=50062fcb#">
+<html lang="fr" data-icons="assets/img/icons.svg?v=4192f3d5#">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Services de convoyage de véhicules | AlbA Convoyages</title>
-  <meta name="description" content="Flottes, concessions, loueurs et assureurs : véhicules convoyés sous 24 à 72 h en France et en Europe, avec suivi GPS et état des lieux numérique.">
+  <title>Convoyage de véhicules pour professionnels | AlbA Convoyages</title>
+  <meta name="description" content="Flottes, concessions, loueurs et assureurs : vos véhicules convoyés sous 24 à 72 h en France et en Europe, suivi GPS et état des lieux numérique.">
   <link rel="canonical" href="https://albaconvoyages.fr/services.html">
   <meta name="theme-color" content="#0e285d">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="AlbA Convoyages">
-  <meta property="og:title" content="Services de convoyage de véhicules | AlbA Convoyages">
-  <meta property="og:description" content="Flottes, concessions, loueurs et assureurs : véhicules convoyés sous 24 à 72 h en France et en Europe, avec suivi GPS et état des lieux numérique.">
+  <meta property="og:title" content="Convoyage de véhicules pour professionnels | AlbA Convoyages">
+  <meta property="og:description" content="Flottes, concessions, loueurs et assureurs : vos véhicules convoyés sous 24 à 72 h en France et en Europe, suivi GPS et état des lieux numérique.">
   <meta property="og:url" content="https://albaconvoyages.fr/services.html">
   <meta property="og:image" content="https://albaconvoyages.fr/assets/img/og-flotte.jpg">
   <meta property="og:image:width" content="1200">
@@ -23,7 +23,7 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/mona-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/golos-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/site.min.css?v=50062fcb">
+  <link rel="stylesheet" href="assets/css/site.min.css?v=4192f3d5">
   <script>
     /* Écran de chargement : uniquement à la première page de la visite */
     (function (d) {
@@ -104,16 +104,28 @@
       </a>
       <nav class="nav" aria-label="Navigation principale">
         <ul class="nav__list">
-          <li><a class="nav__link" href="index.html">Accueil</a></li>
-          <li><a class="nav__link" href="services.html" aria-current="page">Nos services</a></li>
+          <li class="nav__item nav__item--drop">
+            <button class="nav__link nav__trigger is-current" type="button" aria-expanded="false" aria-controls="dd-prestations">Prestations<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#chev-d"/></svg></button>
+            <div class="nav__drop" id="dd-prestations">
+              <a class="nav__drop-link" href="services.html" aria-current="page"><span class="nav__drop-icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#layers"/></svg></span><span><strong>Professionnels</strong><small>Flottes, concessions, loueurs &amp; assureurs</small></span></a>
+              <a class="nav__drop-link" href="particuliers.html"><span class="nav__drop-icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#key"/></svg></span><span><strong>Particuliers</strong><small>Achat, vente ou livraison de votre véhicule</small></span></a>
+            </div>
+          </li>
           <li><a class="nav__link" href="devenir-convoyeur.html">Devenir convoyeur</a></li>
-          <li><a class="nav__link" href="blog.html">Infos convoyage</a></li>
+          <li class="nav__item nav__item--drop">
+            <button class="nav__link nav__trigger" type="button" aria-expanded="false" aria-controls="dd-apropos">À propos<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#chev-d"/></svg></button>
+            <div class="nav__drop" id="dd-apropos">
+              <a class="nav__drop-link" href="a-propos.html"><span class="nav__drop-icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#users"/></svg></span><span><strong>Qui sommes-nous</strong><small>Carla, Fabrice et nos convoyeurs</small></span></a>
+              <a class="nav__drop-link" href="faq.html"><span class="nav__drop-icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#chat"/></svg></span><span><strong>Questions fréquentes</strong><small>Clients et convoyeurs</small></span></a>
+              <a class="nav__drop-link" href="blog.html"><span class="nav__drop-icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#file"/></svg></span><span><strong>Infos convoyage</strong><small>Conseils et coulisses du métier</small></span></a>
+            </div>
+          </li>
           <li><a class="nav__link" href="devis.html">Contact</a></li>
         </ul>
       </nav>
       <div class="header-actions">
-        <a class="header-phone" href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#phone"/></svg>07 89 62 17 61</a>
-        <a class="btn btn--sm header-cta" href="devis.html">Demander un devis<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg></span></a>
+        <a class="header-phone" href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#phone"/></svg>07 89 62 17 61</a>
+        <a class="btn btn--sm header-cta" href="devis.html">Demander un devis<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></span></a>
         <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu"><span></span></button>
       </div>
     </div>
@@ -122,17 +134,22 @@
   <div class="mobile-menu" id="mobile-menu" hidden>
     <nav aria-label="Navigation mobile">
       <ul class="mobile-menu__list">
-        <li><a href="index.html">Accueil<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg></a></li>
-        <li><a href="services.html" aria-current="page">Nos services<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg></a></li>
-        <li><a href="devenir-convoyeur.html">Devenir convoyeur<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg></a></li>
-        <li><a href="blog.html">Infos convoyage<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg></a></li>
-        <li><a href="devis.html">Contact &amp; devis<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg></a></li>
+        <li><a href="index.html">Accueil<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a></li>
+        <li class="mobile-menu__group">Prestations</li>
+        <li><a href="services.html" aria-current="page">Professionnels<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a></li>
+        <li><a href="particuliers.html">Particuliers<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a></li>
+        <li class="mobile-menu__group">AlbA Convoyages</li>
+        <li><a href="devenir-convoyeur.html">Devenir convoyeur<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a></li>
+        <li><a href="a-propos.html">Qui sommes-nous<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a></li>
+        <li><a href="faq.html">Questions fréquentes<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a></li>
+        <li><a href="blog.html">Infos convoyage<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a></li>
+        <li><a href="devis.html">Contact &amp; devis<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a></li>
       </ul>
     </nav>
     <div class="mobile-menu__foot">
       <p class="text-sm muted">Lundi au samedi · 8h30 – 19h<br>Devis en 30 minutes en moyenne</p>
-      <a class="btn" href="devis.html">Demander un devis gratuit<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg></span></a>
-      <a class="btn btn--outline" href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#phone"/></svg>07 89 62 17 61</a>
+      <a class="btn" href="devis.html">Demander un devis gratuit<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></span></a>
+      <a class="btn btn--outline" href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#phone"/></svg>07 89 62 17 61</a>
     </div>
   </div>
 
@@ -142,22 +159,108 @@
       <div class="hero__bg" aria-hidden="true"></div>
       <div class="hero__grain" aria-hidden="true"></div>
       <div class="container">
-        <ol class="breadcrumb" data-reveal="fade"><li><a href="index.html">Accueil</a></li><li aria-current="page">Nos services</li></ol>
-        <div class="page-hero__grid">
+        <ol class="breadcrumb" data-reveal="fade"><li><a href="index.html">Accueil</a></li><li>Prestations</li><li aria-current="page">Professionnels</li></ol>
+        <div class="page-hero__grid page-hero__grid--form">
           <div>
-            <p class="hero__badge" data-reveal="fade"><span class="eyebrow eyebrow--pill">+2 500 véhicules livrés en 2025 · 100 % de clients satisfaits</span></p>
-            <h1 id="page-title" class="display display-lg hero__title" data-split>Convoyage de véhicules <span class="ghost">partout en France et en Europe</span> sous 24&nbsp;à&nbsp;72&nbsp;h</h1>
-          </div>
-          <div data-reveal style="--d:3">
-            <p class="lead">Suivi digitalisé et interlocuteur unique. Que vous déplaciez un véhicule par mois ou plusieurs par semaine, nous nous adaptons à vos contraintes.</p>
-            <div class="btn-row mt-6">
-              <a class="btn" href="devis.html">Obtenir un devis dans l'heure<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg></span></a>
-            </div>
-            <ul class="hero__checks">
-              <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#check"/></svg>Devis en 30 minutes</li>
-              <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#check"/></svg>Suivi GPS</li>
-              <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#check"/></svg>Dès 98 € HT</li>
+            <p class="hero__badge" data-reveal="fade"><span class="eyebrow eyebrow--pill">Professionnels · +2 500 véhicules livrés en 2025</span></p>
+            <h1 id="page-title" class="display display-lg hero__title" data-split>Le convoyage de vos véhicules, <span class="ghost">sans gestion de votre côté</span></h1>
+            <p class="lead mt-6" data-reveal style="--d:3">Gestionnaires de flotte, concessions, loueurs et assureurs : prise en charge sous 24 à 72 h partout en France et en Europe, avec suivi digitalisé et interlocuteur unique.</p>
+            <ul class="hero__checks" data-reveal style="--d:4">
+              <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#check"/></svg>Devis en 30 minutes</li>
+              <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#check"/></svg>Suivi GPS</li>
+              <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#check"/></svg>Assurance tous risques incluse</li>
             </ul>
+          </div>
+          <form class="quick-quote" action="devis.html" method="get" data-reveal="scale" style="--d:4" aria-labelledby="qq-title">
+            <div class="quick-quote__head">
+              <p id="qq-title" class="quick-quote__title">Votre devis en 30 minutes</p>
+              <p class="quick-quote__sub">Gratuit · sans engagement · dès 98 € HT</p>
+            </div>
+            <div class="segmented" role="radiogroup" aria-label="Vous êtes"><label><input type="radio" name="profil" value="entreprise" checked><span>Entreprise</span></label><label><input type="radio" name="profil" value="particulier"><span>Particulier</span></label></div>
+            <div class="quick-quote__route">
+              <label class="qq-field"><span>Départ</span><input name="depart" required placeholder="Ex. Paris" autocomplete="address-level2"></label>
+              <span class="quick-quote__arrow" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-r"/></svg></span>
+              <label class="qq-field"><span>Arrivée</span><input name="arrivee" required placeholder="Ex. Lyon"></label>
+            </div>
+            <label class="qq-field"><span>Type de véhicule</span><select name="vehicule" required><option value="">Choisir…</option><option>Citadine</option><option>Berline</option><option>SUV / 4x4</option><option>Monospace</option><option>Utilitaire léger (≤ 3,5 t)</option></select></label>
+            <button class="btn btn--light btn--block" type="submit">Obtenir mon devis<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></span></button>
+            <p class="quick-quote__proof"><span class="stars" aria-label="5 étoiles sur 5"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg></span><span>5/5 sur Google · avis vérifiés</span></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="nos-prestations" aria-labelledby="services-title">
+      <div class="container">
+        <div class="slider" data-slider>
+          <div class="section-head section-head--split">
+            <div>
+              <p class="eyebrow" data-reveal>Nos prestations</p>
+              <h2 id="services-title" class="display display-lg mt-4" data-split>Vos convoyages <span class="ghost">dès 98&nbsp;€&nbsp;HT</span></h2>
+            </div>
+            <p class="lead" data-reveal>Livraison de vos véhicules en 48 h partout en France et en Europe, avec une assurance tous risques incluse à chaque mission.</p>
+          </div>
+
+          <div class="slider__track" data-reveal>
+            <article class="service-card">
+              <div class="service-card__media">
+                <img src="assets/img/blog-convoyage-urgent.webp" srcset="assets/img/blog-convoyage-urgent-700.webp 700w, assets/img/blog-convoyage-urgent.webp 1400w" sizes="(min-width: 1000px) 45vw, 92vw" alt="" width="1400" height="934" loading="lazy">
+                <span class="service-card__tag">Ponctuel ou récurrent</span>
+              </div>
+              <div class="service-card__body">
+                <div class="service-card__head"><span class="service-card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#route"/></svg></span><h3>Convoyages</h3></div>
+                <p class="service-card__lead">Vous devez déplacer un ou plusieurs véhicules d'un point A à un point B.</p>
+                <p class="service-card__text">En moins de 48 h, partout en France et en Europe. Confirmation de livraison avec rapport photo complet.</p>
+                <a class="link-arrow service-card__link" href="devis.html">Demander un devis convoyage<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-card__media">
+                <img src="assets/img/flotte.webp" srcset="assets/img/flotte-700.webp 700w, assets/img/flotte.webp 1400w" sizes="(min-width: 1000px) 45vw, 92vw" alt="" width="1400" height="934" loading="lazy">
+                <span class="service-card__tag">Entreprises</span>
+              </div>
+              <div class="service-card__body">
+                <div class="service-card__head"><span class="service-card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#layers"/></svg></span><h3>Gestion de flotte</h3></div>
+                <p class="service-card__lead">Vous gérez des mouvements de véhicules réguliers.</p>
+                <p class="service-card__text">Rééquilibrage de parc, restitutions LLD, transferts inter-sites. Gagnez en temps, en visibilité et en sérénité.</p>
+                <a class="link-arrow service-card__link" href="devis.html">Demander un devis flotte<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-card__media">
+                <img src="assets/img/remise-cles.webp" srcset="assets/img/remise-cles-700.webp 700w, assets/img/remise-cles.webp 1400w" sizes="(min-width: 1000px) 45vw, 92vw" alt="" width="1400" height="934" loading="lazy">
+                <span class="service-card__tag">Particuliers &amp; pros</span>
+              </div>
+              <div class="service-card__body">
+                <div class="service-card__head"><span class="service-card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#key"/></svg></span><h3>Achats &amp; ventes à distance</h3></div>
+                <p class="service-card__lead">Vous achetez ou vendez un véhicule à distance.</p>
+                <p class="service-card__text">Suivi en temps réel et état des lieux digital complet : trajet, remise des clés, propreté. Aucune mauvaise surprise.</p>
+                <a class="link-arrow service-card__link" href="particuliers.html">Voir l'offre particuliers<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-card__media">
+                <img src="assets/img/concession.webp" srcset="assets/img/concession-700.webp 700w, assets/img/concession.webp 1400w" sizes="(min-width: 1000px) 45vw, 92vw" alt="" width="1400" height="934" loading="lazy">
+                <span class="service-card__tag">Concessions</span>
+              </div>
+              <div class="service-card__body">
+                <div class="service-card__head"><span class="service-card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#truck"/></svg></span><h3>Livraisons</h3></div>
+                <p class="service-card__lead">Vous livrez des véhicules à vos clients partout en France.</p>
+                <p class="service-card__text">Transport, suivi, préparation (lavage, contrôles) et mise en main au client final. Un service clé en main.</p>
+                <a class="link-arrow service-card__link" href="devis.html">Demander un devis livraison<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a>
+              </div>
+            </article>
+          </div>
+
+          <div class="slider__foot">
+            <p class="text-sm muted">Un besoin particulier ? Parlons-en directement.</p>
+            <span class="line" aria-hidden="true"></span>
+            <a class="link-arrow" href="devis.html">Nous contacter<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a>
+            <div class="slider__nav">
+              <button class="slider__btn" type="button" data-prev aria-label="Service précédent"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#chev-l"/></svg></button>
+              <button class="slider__btn" type="button" data-next aria-label="Service suivant"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#chev-r"/></svg></button>
+            </div>
           </div>
         </div>
       </div>
@@ -174,16 +277,16 @@
         </div>
         <div class="grid grid-3 mt-12">
           <article class="card feature-card" data-reveal style="--d:0">
-            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#clock"/></svg></span>
+            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#clock"/></svg></span>
             <div><h3 class="card__title">Disponibilité</h3><p class="card__text mt-2">Du lundi au samedi de 8h30 à 19h, par téléphone, e-mail ou WhatsApp.</p></div>
           </article>
           <article class="card feature-card feature-card--image" data-reveal style="--d:1">
             <img src="assets/img/equipe-carla-fabrice.webp" srcset="assets/img/equipe-carla-fabrice-600.webp 600w, assets/img/equipe-carla-fabrice.webp 1024w" sizes="(min-width: 1000px) 45vw, 92vw" alt="" width="1024" height="1024" loading="lazy">
-            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#heart"/></svg></span>
+            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#heart"/></svg></span>
             <div><h3 class="card__title">Proximité</h3><p class="card__text mt-2">Carla et Fabrice connaissent chaque convoyeur et suivent personnellement chaque mission.</p></div>
           </article>
           <article class="card feature-card" data-reveal style="--d:2">
-            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#zap"/></svg></span>
+            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#zap"/></svg></span>
             <div><h3 class="card__title">Réactivité</h3><p class="card__text mt-2">Devis en 30 minutes en moyenne, intervention en 24 h pour les urgences.</p></div>
           </article>
         </div>
@@ -234,11 +337,11 @@
               <h3 class="title-lg">Vos mouvements de véhicules pris en charge en 48 h</h3>
               <p class="card__text">Équilibrage de parc, restitutions de LLD, transferts inter-sites. Vos collaborateurs n'ont rien à gérer et vous recevez un état des lieux complet à chaque opération.</p>
               <ul>
-                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#check"/></svg>Prise en charge en 48 h sur toute la France et l'Europe</li>
-                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#check"/></svg>État des lieux numérique avec photos au départ et à l'arrivée</li>
-                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#check"/></svg>Suivi GPS en temps réel</li>
+                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#check"/></svg>Prise en charge en 48 h sur toute la France et l'Europe</li>
+                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#check"/></svg>État des lieux numérique avec photos au départ et à l'arrivée</li>
+                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#check"/></svg>Suivi GPS en temps réel</li>
               </ul>
-              <div class="mt-4"><a class="btn btn--sm" href="devis.html">Demander un devis flotte<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg></span></a></div>
+              <div class="mt-4"><a class="btn btn--sm" href="devis.html">Demander un devis flotte<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></span></a></div>
             </div>
           </article>
           <article class="step" id="concessions" data-reveal>
@@ -248,12 +351,12 @@
               <h3 class="title-lg">Nous nous intégrons à votre processus de vente</h3>
               <p class="card__text">Livraison de véhicules neufs ou d'occasion à vos clients, transferts entre sites, remise des clés, achat : une livraison à la hauteur de l'image de votre entreprise.</p>
               <ul>
-                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#check"/></svg>Livraison chez votre client final ou entre vos sites</li>
-                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#check"/></svg>État des lieux digitalisé en temps réel</li>
-                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#check"/></svg>Convoyeurs fiables et vérifiés</li>
-                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#check"/></svg>Remise en main : lavage, explications et démonstration</li>
+                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#check"/></svg>Livraison chez votre client final ou entre vos sites</li>
+                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#check"/></svg>État des lieux digitalisé en temps réel</li>
+                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#check"/></svg>Convoyeurs fiables et vérifiés</li>
+                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#check"/></svg>Remise en main : lavage, explications et démonstration</li>
               </ul>
-              <div class="mt-4"><a class="btn btn--sm" href="devis.html">Demander un devis concession<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg></span></a></div>
+              <div class="mt-4"><a class="btn btn--sm" href="devis.html">Demander un devis concession<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></span></a></div>
             </div>
           </article>
           <article class="step" id="loueurs" data-reveal>
@@ -263,11 +366,11 @@
               <h3 class="title-lg">Intervention en urgence, y compris le week-end</h3>
               <p class="card__text">Véhicule de remplacement à livrer en urgence, récupération après sinistre, relocalisation de parc : nous intervenons en 48 h avec une couverture tous risques systématique.</p>
               <ul>
-                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#check"/></svg>Intervention urgente en 24 à 48 h, y compris le week-end</li>
-                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#check"/></svg>Assurance tous risques incluse à chaque mission</li>
-                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#check"/></svg>Documentation complète pour vos dossiers</li>
+                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#check"/></svg>Intervention urgente en 24 à 48 h, y compris le week-end</li>
+                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#check"/></svg>Assurance tous risques incluse à chaque mission</li>
+                <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#check"/></svg>Documentation complète pour vos dossiers</li>
               </ul>
-              <div class="mt-4"><a class="btn btn--sm" href="devis.html">Demander un devis<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg></span></a></div>
+              <div class="mt-4"><a class="btn btn--sm" href="devis.html">Demander un devis<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></span></a></div>
             </div>
           </article>
         </div>
@@ -282,48 +385,33 @@
           <h2 id="incl-title" class="display display-lg" data-split>Aucune surprise. <span class="ghost">Tout compris dès 98&nbsp;€&nbsp;HT.</span></h2>
         </div>
         <div class="grid grid-4">
-          <article class="card" data-reveal style="--d:0"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#camera"/></svg></span><h3 class="card__title mt-4">État des lieux numérique</h3><p class="card__text">Rapport photographique complet au départ et à l'arrivée, transmis en temps réel.</p></article>
-          <article class="card" data-reveal style="--d:1"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#gps"/></svg></span><h3 class="card__title mt-4">Suivi GPS en direct</h3><p class="card__text">Traçabilité complète : vous savez où est votre véhicule à tout moment de la mission.</p></article>
-          <article class="card" data-reveal style="--d:2"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#shield"/></svg></span><h3 class="card__title mt-4">Assurance tous risques</h3><p class="card__text">Souscrite par chaque convoyeur partenaire. Votre responsabilité est protégée dès la prise en charge.</p></article>
-          <article class="card" data-reveal style="--d:3"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#users"/></svg></span><h3 class="card__title mt-4">Convoyeurs fidèles</h3><p class="card__text">Des professionnels connus de Carla et Fabrice, sensibles à la sécurité routière et à la relation client.</p></article>
+          <article class="card" data-reveal style="--d:0"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#camera"/></svg></span><h3 class="card__title mt-4">État des lieux numérique</h3><p class="card__text">Rapport photographique complet au départ et à l'arrivée, transmis en temps réel.</p></article>
+          <article class="card" data-reveal style="--d:1"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#gps"/></svg></span><h3 class="card__title mt-4">Suivi GPS en direct</h3><p class="card__text">Traçabilité complète : vous savez où est votre véhicule à tout moment de la mission.</p></article>
+          <article class="card" data-reveal style="--d:2"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#shield"/></svg></span><h3 class="card__title mt-4">Assurance tous risques</h3><p class="card__text">Souscrite par chaque convoyeur partenaire. Votre responsabilité est protégée dès la prise en charge.</p></article>
+          <article class="card" data-reveal style="--d:3"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#users"/></svg></span><h3 class="card__title mt-4">Convoyeurs fidèles</h3><p class="card__text">Des professionnels connus de Carla et Fabrice, sensibles à la sécurité routière et à la relation client.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- ============ ÉQUIPE ============ -->
-    <section class="section" aria-labelledby="team-title">
+    <!-- ============ FAQ ============ -->
+    <section class="section section--soft" aria-labelledby="faq-pro-title">
       <div class="container">
-        <div class="split">
-          <div>
-            <p class="eyebrow" data-reveal>Vos interlocuteurs</p>
-            <h2 id="team-title" class="display display-lg mt-4" data-split>Une équipe. <span class="ghost">Pas un algorithme.</span></h2>
-            <p class="lead mt-6" data-reveal>Carla et Fabrice organisent vos convoyages, connaissent leurs partenaires et suivent personnellement chaque mission. Vous avez une question ? Vous savez qui appeler.</p>
-            <div class="stats stats--light stats--2col mt-8" data-reveal style="color:var(--navy-900)">
-              <div class="stat"><div class="stat__value" data-count="30" data-suffix=" min">30 min</div><p class="stat__label">Délai moyen de réponse</p></div>
-              <div class="stat"><div class="stat__value" data-count="2500" data-prefix="+">+2 500</div><p class="stat__label">Véhicules livrés en 2025</p></div>
-              <div class="stat"><div class="stat__value" data-count="48" data-suffix=" h">48 h</div><p class="stat__label">Délai de livraison</p></div>
-              <div class="stat"><div class="stat__value">5/5</div><p class="stat__label">Note Google</p></div>
+        <div class="faq">
+          <div class="faq__aside">
+            <p class="eyebrow" data-reveal>Questions fréquentes</p>
+            <h2 id="faq-pro-title" class="display display-lg mt-4" data-split>Vos questions <span class="ghost">de professionnels</span></h2>
+            <div class="faq__contact" data-reveal>
+              <p class="muted text-sm">Pour une offre adaptée à vos volumes, contactez Carla ou Fabrice : devis personnalisé sous 1 heure, sans engagement.</p>
+              <div class="btn-row"><a class="btn btn--navy" href="tel:+33789621761">07 89 62 17 61<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></span></a></div>
             </div>
           </div>
-          <div class="grid grid-2">
-            <article class="team-card" data-reveal style="--d:0">
-              <img src="assets/img/carla.webp" alt="Portrait de Carla" width="700" height="875" loading="lazy">
-              <a class="team-card__link" href="https://www.linkedin.com/in/carla-graeffly/" target="_blank" rel="noopener" aria-label="Profil LinkedIn de Carla"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#linkedin"/></svg></a>
-              <div class="team-card__body">
-                <p class="team-card__name">Carla</p>
-                <p class="team-card__role">Responsable administrative &amp; coordination</p>
-                <p class="team-card__quote">« Mon rôle, c'est que vous n'ayez jamais à vous demander où en est votre véhicule. »</p>
-              </div>
-            </article>
-            <article class="team-card" data-reveal style="--d:1">
-              <img src="assets/img/fabrice.webp" alt="Portrait de Fabrice" width="700" height="875" loading="lazy">
-              <button class="team-card__link" type="button" data-video="pEKkZTv1v3Y" data-video-title="Fabrice, co-fondateur d'AlbA Convoyages" aria-label="Voir la vidéo de Fabrice"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#play"/></svg></button>
-              <div class="team-card__body">
-                <p class="team-card__name">Fabrice</p>
-                <p class="team-card__role">Responsable convoyeurs &amp; relation client</p>
-                <p class="team-card__quote">« Je connais chaque convoyeur avec qui on travaille. C'est ça, notre garantie. »</p>
-              </div>
-            </article>
+          <div class="faq__list" data-accordion-group>
+            <div class="accordion is-open" data-reveal><button class="accordion__btn" type="button" aria-expanded="true" aria-controls="pro1" id="pro1-btn">Pouvez-vous gérer des volumes importants ?<span class="accordion__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#plus"/></svg></span></button><div class="accordion__panel" id="pro1" role="region" aria-labelledby="pro1-btn"><div><p>Oui. Nous accompagnons des missions ponctuelles comme des besoins récurrents à volumes réguliers. Pour les gestionnaires de flotte, un devis adapté au volume est établi sur demande.</p></div></div></div>
+            <div class="accordion" data-reveal><button class="accordion__btn" type="button" aria-expanded="false" aria-controls="pro2" id="pro2-btn">Quel est le délai de prise en charge pour un convoyage ?<span class="accordion__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#plus"/></svg></span></button><div class="accordion__panel" id="pro2" role="region" aria-labelledby="pro2-btn"><div><p>Nous prenons en charge vos véhicules en 72 heures maximum après confirmation de la mission, sur l'ensemble de la France métropolitaine. Nous pouvons intervenir en 24 h pour des demandes urgentes.</p></div></div></div>
+            <div class="accordion" data-reveal><button class="accordion__btn" type="button" aria-expanded="false" aria-controls="pro3" id="pro3-btn">Les véhicules sont-ils assurés pendant le convoyage ?<span class="accordion__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#plus"/></svg></span></button><div class="accordion__panel" id="pro3" role="region" aria-labelledby="pro3-btn"><div><p>Chaque convoyeur partenaire est couvert par une assurance circulation tous risques valable pendant toute la durée du transport. Vous n'avez aucune démarche supplémentaire à effectuer.</p></div></div></div>
+            <div class="accordion" data-reveal><button class="accordion__btn" type="button" aria-expanded="false" aria-controls="pro4" id="pro4-btn">Que se passe-t-il en cas de problème pendant le convoyage ?<span class="accordion__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#plus"/></svg></span></button><div class="accordion__panel" id="pro4" role="region" aria-labelledby="pro4-btn"><div><p>Carla ou Fabrice sont joignables directement, 6j/7 de 8h30 à 19h. L'assurance tous risques incluse prend en charge les dommages éventuels et/ou le dépannage du véhicule. L'état des lieux numérique permet de documenter précisément tout dommage constaté à l'arrivée.</p></div></div></div>
+            <div class="accordion" data-reveal><button class="accordion__btn" type="button" aria-expanded="false" aria-controls="pro5" id="pro5-btn">Intervenez-vous le week-end et les jours fériés ?<span class="accordion__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#plus"/></svg></span></button><div class="accordion__panel" id="pro5" role="region" aria-labelledby="pro5-btn"><div><p>Oui. Carla et Fabrice sont disponibles 6 jours sur 7, de 8h30 à 19h. Les convoyages peuvent être organisés en dehors des jours ouvrés selon les disponibilités.</p></div></div></div>
+            <div class="accordion" data-reveal><button class="accordion__btn" type="button" aria-expanded="false" aria-controls="pro6" id="pro6-btn">Comment obtenir une offre adaptée à mes volumes ?<span class="accordion__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#plus"/></svg></span></button><div class="accordion__panel" id="pro6" role="region" aria-labelledby="pro6-btn"><div><p>Écrivez-nous par e-mail ou contactez directement Carla ou Fabrice au 07 89 62 17 61, du lundi au samedi de 8h30 à 19h. Un devis personnalisé vous est transmis sous 1 heure, sans engagement.</p></div></div></div>
           </div>
         </div>
       </div>
@@ -338,9 +426,9 @@
           <h2 id="footer-cta-title" class="display display-lg">Votre besoin correspond à l'un de ces services ?</h2>
           <p>Carla ou Fabrice vous répond en moyenne sous 30 minutes avec un devis adapté. Un besoin particulier ? Parlons-en directement.</p>
           <div class="footer-cta__actions">
-            <a class="btn btn--light" href="devis.html">Obtenir mon devis gratuit<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg></span></a>
+            <a class="btn btn--light" href="devis.html">Obtenir mon devis gratuit<span class="btn__tile"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></span></a>
             <div class="footer-cta__rating">
-              <strong>5/5 <span class="stars" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg?v=50062fcb#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=50062fcb#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=50062fcb#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=50062fcb#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=50062fcb#star"/></svg></span></strong>
+              <strong>5/5 <span class="stars" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg></span></strong>
               <span>Avis Google · <a href="tel:+33789621761" style="text-decoration:underline">07 89 62 17 61</a></span>
             </div>
           </div>
@@ -351,41 +439,49 @@
           <img src="assets/img/logo-alba-blanc-260.webp" alt="AlbA Convoyages" width="260" height="105" loading="lazy">
           <p>La logistique automobile, 100 % humaine. Convoyages de véhicules légers partout en France et en Europe, à partir de 98 € HT.</p>
           <a class="google-badge" href="https://www.trustindex.io/reviews/www.albaconvoyages.fr" target="_blank" rel="noopener">
-            <span class="google-badge__g"><svg aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#google"/></svg></span>
-            <span><span class="stars" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg?v=50062fcb#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=50062fcb#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=50062fcb#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=50062fcb#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=50062fcb#star"/></svg></span><small>Excellent · 5/5 sur Google</small></span>
+            <span class="google-badge__g"><svg aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#google"/></svg></span>
+            <span><span class="stars" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg><svg class="icon"><use href="assets/img/icons.svg?v=4192f3d5#star"/></svg></span><small>Excellent · 5/5 sur Google</small></span>
           </a>
         </div>
         <div>
-          <h2 class="footer-title">Nos services</h2>
+          <h2 class="footer-title">Prestations</h2>
           <ul class="footer-links">
-            <li><a href="services.html">Convoyages</a></li>
+            <li><a href="services.html">Professionnels</a></li>
+            <li><a href="particuliers.html">Particuliers</a></li>
             <li><a href="services.html#flotte">Gestion de flotte</a></li>
-            <li><a href="services.html#concessions">Livraisons</a></li>
+            <li><a href="services.html#concessions">Livraisons concessions</a></li>
             <li><a href="services.html#loueurs">Loueurs &amp; assureurs</a></li>
-            <li><a href="services.html#services">Achats &amp; ventes à distance</a></li>
           </ul>
         </div>
         <div>
-          <h2 class="footer-title">Liens utiles</h2>
+          <h2 class="footer-title">Convoyeurs</h2>
           <ul class="footer-links">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="devis.html">Recevoir un devis</a></li>
             <li><a href="devenir-convoyeur.html">Devenir convoyeur</a></li>
+            <li><a href="devenir-convoyeur.html#conditions">Vérifier mon éligibilité</a></li>
+            <li><a href="faq.html#convoyeurs">FAQ convoyeurs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer-title">À propos</h2>
+          <ul class="footer-links">
+            <li><a href="a-propos.html">Qui sommes-nous</a></li>
+            <li><a href="faq.html">FAQ clients</a></li>
             <li><a href="blog.html">Infos convoyage</a></li>
-            <li><a href="devis.html#faq">Questions fréquentes</a></li>
+            <li><a href="devis.html">Nous contacter</a></li>
           </ul>
         </div>
         <div>
           <h2 class="footer-title">Nous contacter</h2>
           <div class="footer-contact">
-            <a href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#phone"/></svg>07 89 62 17 61</a>
-            <a href="mailto:administratif@albaconvoyages.fr"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#mail"/></svg>administratif@albaconvoyages.fr</a>
+            <a href="tel:+33789621761"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#phone"/></svg>07 89 62 17 61</a>
+            <a href="mailto:administratif@albaconvoyages.fr"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#mail"/></svg>administratif@albaconvoyages.fr</a>
+            <span class="footer-contact__line"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#pin"/></svg>9 avenue Alexandre Maistrasse, 92500 Rueil-Malmaison</span>
             <small>Du lundi au samedi, 8h30 – 19h<br>Une réponse en moins de 30 minutes</small>
           </div>
           <div class="socials">
-            <a href="https://www.linkedin.com/company/alba-convoyages" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#linkedin"/></svg></a>
-            <a href="https://whatsapp.com/channel/0029Vb6IM6E4IBhB8UZ8j41o" target="_blank" rel="noopener" aria-label="Chaîne WhatsApp"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#chat"/></svg></a>
-            <a href="https://www.tiktok.com/@albaconvoyages.fr" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#tiktok"/></svg></a>
+            <a href="https://www.linkedin.com/company/alba-convoyages" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#linkedin"/></svg></a>
+            <a href="https://whatsapp.com/channel/0029Vb6IM6E4IBhB8UZ8j41o" target="_blank" rel="noopener" aria-label="Chaîne WhatsApp"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#chat"/></svg></a>
+            <a href="https://www.tiktok.com/@albaconvoyages.fr" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#tiktok"/></svg></a>
           </div>
         </div>
       </div>
@@ -398,11 +494,11 @@
   </footer>
 
   <div class="mobile-bar" aria-label="Actions rapides">
-    <a class="mobile-bar__call" href="tel:+33789621761" aria-label="Appeler AlbA Convoyages"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#phone"/></svg>Appeler</a>
-    <a class="mobile-bar__quote" href="devis.html">Devis gratuit en 30 min<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=50062fcb#arrow-ur"/></svg></a>
+    <a class="mobile-bar__call" href="tel:+33789621761" aria-label="Appeler AlbA Convoyages"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#phone"/></svg>Appeler</a>
+    <a class="mobile-bar__quote" href="devis.html">Devis gratuit en 30 min<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg?v=4192f3d5#arrow-ur"/></svg></a>
   </div>
 
-  <script src="assets/js/hero-shader.js?v=50062fcb" defer></script>
-  <script src="assets/js/main.js?v=50062fcb" defer></script>
+  <script src="assets/js/hero-shader.js?v=4192f3d5" defer></script>
+  <script src="assets/js/main.js?v=4192f3d5" defer></script>
 </body>
 </html>
